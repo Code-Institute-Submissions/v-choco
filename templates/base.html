@@ -37,5 +37,14 @@
       {% if messages %}
         <div class="alerts-container"></div>
       {% endif %}
+
+      {% block page_header %}
+      {% endblock %}
+      
+      {% block main_content %}
+      {% endblock %}
+
+      {% block postloadjs %}
+      {% endblock %}
   </body>
 </html>
