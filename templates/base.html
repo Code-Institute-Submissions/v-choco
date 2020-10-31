@@ -33,7 +33,7 @@
   </head>
   <body>
       <header class="container-fluid fixed-top">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-light bg-light">
           <a class="navbar-brand" href="{% url 'home' %}">V-Choco</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -49,18 +49,46 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Subscribe</a>
-              </li>          
-            </ul>
-            <form class="form-inline my-2 my-lg-0" method="GET" action="">
-              <input class="form-control mr-sm-2" type="text" name="q" placeholder="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0 form-control" type="submit">Search</button>
-            </form>
-            <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
-              <li class="nav-item list-inline-item dropdown">
-                <a class="nav-link" href="#">Test</a>
-              </li>
-              <li class="list-inline-item"></li>         
-            </ul>
+              </li> 
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <div>
+                      <div><i class="fas fa-user fa-lg"></i></div>
+                      My Account
+                  </div>
+              </a>
+              <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                  {% if request.user.is_authenticated %}
+                      {% if request.user.is_superuser %}
+                          <a href="" class="dropdown-item">Product Management</a>
+                      {% endif %}
+                      <a href="" class="dropdown-item">My Profile</a>
+                      <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                  {% else %}
+                      <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                      <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                  {% endif %}
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="{% if grand_total %}text-info font-weight-bold{% endif %} nav-link" href="">
+                  <div>
+                      <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                      <p>
+                          {% if grand_total %}
+                              ${{ grand_total|floatformat:2 }}
+                          {% else %}
+                              $0.00
+                          {% endif %}
+                      </p>
+                  </div>
+              </a>
+          </li> 
+          </ul>
+          <form class="form-inline" method="GET" action="">
+            <input class="form-control mr-sm-2" type="text" name="q" placeholder="Search">
+            <button class="btn btn-outline-success form-control" type="submit">Search</button>
+          </form>
           </div>
         </nav>
       </header>
