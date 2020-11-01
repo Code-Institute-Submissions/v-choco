@@ -32,7 +32,7 @@
     <title>V-Choco {% block extra_title %} {% endblock %}</title>
   </head>
   <body>
-      <header class="container-fluid fixed-top">
+<header class="container-fluid">
         <nav class="navbar navbar-light bg-light">
           <a class="navbar-brand" href="{% url 'home' %}">V-Choco</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
@@ -99,8 +99,8 @@
 
       {% block page_header %}
       {% endblock %}
-      
-      {% block main_content %}
+
+      {% block content %}
       {% endblock %}
 
       {% block postloadjs %}
