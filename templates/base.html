@@ -16,6 +16,7 @@
     {% block corecss %}
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <script src="https://kit.fontawesome.com/7f61f2d383.js" crossorigin="anonymous"></script>
     {% endblock %}
 
     {% block extra_css%}
@@ -41,8 +42,7 @@
           <div class="navbar-nav dropdown ml-auto">
               <a class="{% if grand_total %}text-info font-weight-bold{% endif %} nav-link" href="">
                   <div>
-                      <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                      <p>
+                      <p><i class="fas fa-shopping-bag fa-lg mr-2"></i>
                           {% if grand_total %}
                               ${{ grand_total|floatformat:2 }}
                           {% else %}
@@ -67,12 +67,9 @@
               </li> 
               <li class="nav-item dropdown">
                 <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <div>
-                      <div><i class="fas fa-user fa-lg"></i></div>
-                      My Account
-                  </div>
-              </a>
-              <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                  <div><i class="fas fa-user fa-lg mr-2"></i> My Account</div>
+                </a>
+                <div class="dropdown-menu border-0" aria-labelledby="user-options">
                   {% if request.user.is_authenticated %}
                       {% if request.user.is_superuser %}
                           <a href="" class="dropdown-item">Product Management</a>
@@ -83,12 +80,12 @@
                       <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
                       <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
                   {% endif %}
-              </div>
-          </li>
+                </div>
+            </li>
           </ul>
           <form class="form-inline" method="GET" action="">
             <input class="form-control mr-sm-2" type="text" name="q" placeholder="Search">
-            <button class="btn btn-sm btn-outline-light form-control" type="submit">Search</button>
+            <button class="btn btn-sm btn-outline-light form-control" type="submit"><i class="fas fa-search"></i></button>
           </form>
           </div>
         </nav>
