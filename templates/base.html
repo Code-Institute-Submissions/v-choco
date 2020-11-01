@@ -56,14 +56,22 @@
             aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse" id="navbarToggler">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Products</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="#" id="navbar-products" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <div>Products</div>
+                </a>
+                <div class="dropdown-menu border-0" aria-labelledby="navbar-products">
+                  <a href="" class="dropdown-item">All Products</a>
+                  <a href="" class="dropdown-item">Seasonal Selections</a>
+                  <a href="" class="dropdown-item">Bonbons</a>
+                  <a href="" class="dropdown-item">Chocolate Bars</a>
+                </div>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Build Your Box</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Subscribe</a>
+                <a class="nav-link" href="#">Subscription Box</a>
               </li> 
               <li class="nav-item dropdown">
                 <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
