@@ -2,6 +2,50 @@ html {
     height: 100%
 }
 
-#homepage-carousel {
-    padding-top: 100px;
+/* Sitewide styling */
+
+body {
+    height:100vh;
+    color: #545454;
 }
+
+/*Navigation bar */
+#nav {
+    background-color: #2caead;
+}
+
+.dropdown-menu {
+    background-color: #2caead;
+}
+
+.dropdown-menu a:hover {
+    background-color: #2caead;
+    color: #8ecbb5;
+}
+
+#nav a {
+    color: white;
+}
+
+#nav a:hover {
+    color: #8ecbb5;
+}
+
+.navbar .navbar-toggler-icon {
+    background-image: url('https://mdbootstrap.com/img/svg/hamburger2.svg?color=fff');
+}
+
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+/* Buttons */
+.btn-outline-light:hover {
+    color: #2caead;
+}
+

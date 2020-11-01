@@ -15,6 +15,7 @@
 
     {% block corecss %}
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
     {% block extra_css%}
@@ -33,12 +34,26 @@
   </head>
   <body>
 <header class="container-fluid">
-        <nav class="navbar navbar-light bg-light">
-          <a class="navbar-brand" href="{% url 'home' %}">V-Choco</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        
+        <nav id="nav" class="navbar navbar-white">
+          <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{% static '/images/vchoco-logo.png' %}" height="30" alt="V-Choco logo">
+          </a>
+          <div class="navbar-nav dropdown ml-auto">
+              <a class="{% if grand_total %}text-info font-weight-bold{% endif %} nav-link" href="">
+                  <div>
+                      <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                      <p>
+                          {% if grand_total %}
+                              ${{ grand_total|floatformat:2 }}
+                          {% else %}
+                              $0.00
+                          {% endif %}
+                      </p>
+                  </div>
+              </a>
+            </div> 
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+            aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse" id="navbarToggler">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
               <li class="nav-item">
@@ -70,24 +85,10 @@
                   {% endif %}
               </div>
           </li>
-          <li class="nav-item dropdown">
-              <a class="{% if grand_total %}text-info font-weight-bold{% endif %} nav-link" href="">
-                  <div>
-                      <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                      <p>
-                          {% if grand_total %}
-                              ${{ grand_total|floatformat:2 }}
-                          {% else %}
-                              $0.00
-                          {% endif %}
-                      </p>
-                  </div>
-              </a>
-          </li> 
           </ul>
           <form class="form-inline" method="GET" action="">
             <input class="form-control mr-sm-2" type="text" name="q" placeholder="Search">
-            <button class="btn btn-outline-success form-control" type="submit">Search</button>
+            <button class="btn btn-sm btn-outline-light form-control" type="submit">Search</button>
           </form>
           </div>
         </nav>
