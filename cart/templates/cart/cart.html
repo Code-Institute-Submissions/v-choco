@@ -3,25 +3,66 @@
 {% load static %} 
 {% block content %}
     <div class="container">
-    <div class="row">
-        <div class="col text-center mt-4">
-        <h1>Shopping Cart</h1>
-        <hr />
+        <div class="row">
+            <div class="col text-center mt-4">
+            <h1>Shopping Cart</h1>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
-        {% if cart_items %}
-        <div class="table-responsive table-borderless"></div>
-        {% else %}
-        <h4>Your cart is empty.</h4>
-        <p>
-            <a class="btn btn-sm btn-outline-secondary" href="{% url 'products' %}"
-            ><i class="fas fa-arrow-circle-left"></i> Start shopping</a
-            >
-        </p>
-        {% endif %}
+        <div class="row">
+            <div class="col">
+            {% if cart_items %}
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col"></th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in cart_items %}
+                            <tr>
+                                <td colspan= "2">
+                                    <div class="media">
+                                        <img src="{{ item.product.image.url }}" class="align-self-center mr-3 img-thumbnail" alt="{{ item.product.name }}">
+                                        <div class="media-body my-auto">
+                                          <h5>{{ item.product.name}}</h5>
+                                          <p>${{ item.product.price }}</p>
+                                        </div>
+                                      </div>
+                                </td>
+                                <td>
+                                    <p>{{ item.quantity }}</p>
+                                </td>
+                                <td>
+                                    <p>${{ item.product.price  }}</p>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        <tr>
+                            <td colspan= "4" class="text-right">
+                                <p>Cart: ${{ total|floatformat:2 }}</p>
+                                <p>Shipping: ${{ shipping|floatformat:2 }}</p>
+                                <p>Total: ${{ grand_total|floatformat:2 }}</p>
+                                {% if free_shipping_delta != 0 %}
+                                    <p>
+                                        Spend ${{ free_shipping_delta|floatformat:2 }} more to get free shipping!
+                                    </p>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            {% else %}
+                <h4>Your cart is empty.</h4>
+                <p>
+                    <a class="btn btn-sm btn-outline-secondary" href="{% url 'products' %}"
+                    ><i class="fas fa-arrow-circle-left"></i> Start shopping</a
+                    >
+                </p>
+            {% endif %}
+            </div>
         </div>
-    </div>
     </div>
 {% endblock %}

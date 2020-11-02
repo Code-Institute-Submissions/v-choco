@@ -57,9 +57,12 @@
     <header class="container-fluid">
       <div id="free-shipping-banner" class="row text-center">
         <div class="col">
-          <h5 class="my-1">
-            Free shipping on orders over ${{ free_shipping_threshold }}!
-          </h5>
+          {% if free_shipping_delta != 0 %}
+            <h5 class="my-1">Spend ${{ free_shipping_delta|floatformat:2 }} more to get free shipping!</h5>
+          {% else %}
+            <h5 class="my-1">Congrats! You have qualified for free shipping!</h5>
+          {% endif %}
+            </h5>
         </div>
       </div>
       <nav id="nav" class="navbar navbar-white">
@@ -78,7 +81,7 @@
             <div>
               <p>
                 <i class="fas fa-shopping-cart fa-lg mr-2"></i>
-                {% if order_total %} ${{ order_total|floatformat:2 }} {% else %}
+                {% if total %} ${{ total|floatformat:2 }} {% else %}
                 $0.00 {% endif %}
               </p>
             </div>

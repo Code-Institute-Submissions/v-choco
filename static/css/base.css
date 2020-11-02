@@ -151,3 +151,10 @@ a:hover {
     max-width: 10em;
     font-weight: 900;
 }
+
+/* Shopping Cart Page */
+
+.img-thumbnail {
+    border-radius: 50%;
+    width: 30%;
+}
