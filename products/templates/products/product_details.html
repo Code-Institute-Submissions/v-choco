@@ -19,8 +19,35 @@
                     {{ product.category.friendly_name }}</a>
             </p>
             <h5>$ {{ product.price }}</h5>
+            <form class="form" action="" method="POST">
+                {% csrf_token %}
+                <div class="form-group quantity text-center">
+                    <span class="mr-1" id="minus">-</span>
+                    <input type="number" class="count" name="quantity" value="1" min="1" max="49">
+                    <span class="ml-1" id="plus">+</span>
+                </div>
+                <input type="submit" class="btn btn-outline-secondary text-uppercase my-2" value="Add to Cart">
+                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+            </form>
             <p>{{ product.description }}</p>
         </div>
        </div>
    </div>
+{% endblock %}
+{% block postloadjs %} 
+   <!-- Adapted from: https://bootsnipp.com/snippets/2eKOz -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.count').prop('disabled', true);
+            $(document).on('click','#plus',function(){
+                $('.count').val(parseInt($('.count').val()) + 1 );
+            });
+            $(document).on('click','#minus',function(){
+                $('.count').val(parseInt($('.count').val()) - 1 );
+                    if ($('.count').val() == 0) {
+                        $('.count').val(1);
+                    }
+                });
+        });
+    </script>
 {% endblock %}

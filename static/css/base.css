@@ -142,3 +142,27 @@ a:hover {
 #product-card:hover #plus-button {
     opacity: 1;
 }
+
+/* Product Details Page */
+
+.quantity input {
+    background-color: white;
+    border: none;
+    text-align: center;
+    font-weight: 700;
+}
+#plus, #minus {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    background-color: #fc7cbd;;
+    color: white;
+    width: 30px;
+    height: 30px;
+    font-weight: 700;
+    border-radius: 50%;
+    }
+
+#plus:hover, #minus:hover {
+    background-color: #CDCDCD;
+}
