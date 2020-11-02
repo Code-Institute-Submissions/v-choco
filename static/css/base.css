@@ -52,3 +52,51 @@ body {
     color: #2caead;
 }
 
+/* Products Page */
+
+#product-card {
+    background-color: #fc7cbd;
+}
+
+.card-text {
+    position: relative;
+}
+
+.card-title, #plus-button {
+    height: 70px;
+    width: 70px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 50%;
+    background: #fc7cbd;
+  }
+
+/* Code to create overlay adapted from W3schools */
+#plus-button {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
+
+#plus-text {
+    font-weight: 800;
+    color: white;
+}
+
+#plus-text:hover {
+    text-decoration: none;
+    color: white;
+}
+
+#product-card:hover img {
+    opacity: 0.4;
+}
+
+#product-card:hover #plus-button {
+    opacity: 1;
+}

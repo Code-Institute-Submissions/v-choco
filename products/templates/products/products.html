@@ -2,11 +2,30 @@
 {% load static %}
 
 {% block content %}
-   <div class="container">
+   <div class="container-fluid">
        <div class="row">
-           <div class="col">
-               {{ products }}
+           <div class="col text-center mt-4">
+               <h2>All Products</h2>
+               <hr>
            </div>
+       </div>
+       <div class="row">
+           {% for product in products %}
+                <div class="col-sm-12 col-md-6 col-lg-3">
+                    <div id="product-card" class="card text-white mb-3">
+                        <a href="#">
+                            <img src="{{ product.image.url }}" class="card-img" alt="{{ product.name }}">
+                        </a>
+                        <div class="card-img-overlay">
+                          <h5 class="card-title">$ {{ product.price }}</h5><br><br>
+                          <div id="plus-button">
+                            <h5 class="card-text"><br><a href="#" id="plus-text">+</a></h5>
+                        </div>
+                        </div>
+                        <h5 class="card-footer text-center mb-0">{{ product.name }}</h5>
+                      </div>
+                </div>
+           {% endfor %}
        </div>
    </div>
 {% endblock %}
