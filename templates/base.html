@@ -62,8 +62,8 @@
                 </a>
                 <div class="dropdown-menu border-0" aria-labelledby="navbar-products">
                   <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
-                  <a href="" class="dropdown-item">Seasonal Selections</a>
-                  <a href="" class="dropdown-item">Bonbons</a>
+                  <a href="{% url 'products' %}?category=seasonal_products" class="dropdown-item">Seasonal Selections</a>
+                  <a href="{% url 'products' %}?category=bonbon_boxes" class="dropdown-item">Bonbons</a>
                 </div>
               </li>
               <li class="nav-item">
