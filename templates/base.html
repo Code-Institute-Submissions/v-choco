@@ -40,7 +40,7 @@
             <img src="{% static '/images/vchoco-logo.png' %}" height="30" alt="V-Choco logo">
           </a>
           <div class="navbar-nav dropdown ml-auto">
-              <a class="{% if grand_total %}text-info font-weight-bold{% endif %} nav-link" href="">
+              <a class="{% if grand_total %}text-info font-weight-bold{% endif %} nav-link" href="{% url 'view_cart' %}">
                   <div>
                       <p><i class="fas fa-shopping-cart fa-lg mr-2"></i>
                           {% if grand_total %}
