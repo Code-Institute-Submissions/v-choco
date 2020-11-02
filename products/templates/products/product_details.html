@@ -14,6 +14,10 @@
         </div>
         <div class="col-12 col-md-6 text-center mt-2">
             <h4>{{ product.name }}</h4>
+            <p class="small">
+                <a href="{% url 'products' %}?category={{ product.category.name }}">
+                    <i class="fas fa-clipboard-list"></i> {{ product.category.friendly_name }}</a>
+            </p>
             <h5>$ {{ product.price }}</h5>
             <p>{{ product.description }}</p>
         </div>
