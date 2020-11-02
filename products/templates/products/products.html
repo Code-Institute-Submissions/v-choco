@@ -6,16 +6,16 @@
        <div class="row">
            <div class="col text-center mt-4">
                {% if not current_category %}
-                    <h2>All Products</h2>
-                    <p class="small">
+                    <h1>All Products</h1>
+                    <p>
                         {% for category in categories %}
-                            <a class="mx-3" href="{% url 'products' %}?category={{ category.name }}">{{ category.friendly_name }}</a>
+                            <a class="mx-1 btn btn-sm btn-outline-secondary" href="{% url 'products' %}?category={{ category.name }}">{{ category.friendly_name }}</a>
                         {% endfor %}
                     </p>
                 {% else %}
                     {% for category in current_category %}
-                        <h2>{{ category.friendly_name }}</h2>
-                        <p class="small"><a href="{% url 'products' %}">View All Products</a></p>
+                        <h1>{{ category.friendly_name }}</h1>
+                        <p><a href="{% url 'products' %}" class="btn btn-sm btn-outline-secondary">View All Products</a></p>
                     {% endfor %}
                 {% endif %}
                <hr/>

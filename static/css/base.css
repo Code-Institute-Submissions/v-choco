@@ -69,6 +69,16 @@ a:hover {
     color: #2caead;
 }
 
+.btn-outline-secondary {
+    color: #545454;
+}
+
+.btn-outline-secondary:hover {
+    color: white;
+    background-color: #CDCDCD;
+    border: none;
+}
+
 /* Products Page */
 
 #product-card {
