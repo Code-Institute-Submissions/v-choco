@@ -12,6 +12,15 @@ body {
     font-family: 'Karla', sans-serif;
 }
 
+a {
+    color: #545454;
+}
+
+a:hover {
+    color: #CDCDCD;
+    text-decoration: none;
+}
+
 /*Navigation bar */
 #nav {
     background-color: #2caead;
@@ -94,7 +103,7 @@ body {
 }
 
 #plus-button:hover {
-    background-color: #545454;
+    background-color: #CDCDCD;
 }
 
 #product-card:hover img {

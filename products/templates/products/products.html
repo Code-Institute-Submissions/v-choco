@@ -19,7 +19,7 @@
                         <div class="card-img-overlay">
                           <h5 class="card-title">$ {{ product.price }}</h5><br><br>
                           <div id="plus-button">
-                            <h5 class="card-text"><br><a href="#" id="plus-text">+</a></h5>
+                            <h5 class="card-text"><br><a href="{% url 'product_details' product.id %}" id="plus-text">+</a></h5>
                         </div>
                         </div>
                         <h5 class="card-footer text-center mb-0">{{ product.name }}</h5>
