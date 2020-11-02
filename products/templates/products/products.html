@@ -5,13 +5,25 @@
    <div class="container-fluid">
        <div class="row">
            <div class="col text-center mt-4">
-               <h2>Products</h2>
-               <hr>
+               {% if not current_category %}
+                    <h2>All Products</h2>
+                    <p class="small">
+                        {% for category in categories %}
+                            <a class="mx-3" href="{% url 'products' %}?category={{ category.name }}">{{ category.friendly_name }}</a>
+                        {% endfor %}
+                    </p>
+                {% else %}
+                    {% for category in current_category %}
+                        <h2>{{ category.friendly_name }}</h2>
+                        <p class="small"><a href="{% url 'products' %}">View All Products</a></p>
+                    {% endfor %}
+                {% endif %}
+               <hr/>
            </div>
        </div>
        <div class="row justify-content-center">
            {% for product in products %}
-                <div class="col-sm-8 col-md-6 col-lg-3">
+                <div class="col-8 col-md-6 col-lg-3">
                     <div id="product-card" class="card text-white mb-3">
                         <a href="#">
                             <img src="{{ product.image.url }}" class="card-img" alt="{{ product.name }}">

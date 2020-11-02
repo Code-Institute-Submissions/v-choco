@@ -21,6 +21,14 @@ a:hover {
     text-decoration: none;
 }
 
+.small a {
+    color: #CDCDCD;
+}
+
+.small a:hover {
+    color: #545454;
+}
+
 /*Navigation bar */
 #nav {
     background-color: #2caead;

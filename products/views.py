@@ -7,6 +7,7 @@ def products(request):
     """ Renders all products and ability to search and sort"""
 
     products = Product.objects.all()
+    categories = Category.objects.all()
     query = None
     category = None
 
@@ -29,6 +30,7 @@ def products(request):
     context = {
         'products': products,
         'search': query,
+        'categories': categories,
         'current_category': category,
     }
 
