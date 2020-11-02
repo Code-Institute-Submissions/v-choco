@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.db.models import Q
 from .models import Product, Category
 
+
 def products(request):
     """ Renders all products and ability to search and sort"""
 
@@ -17,13 +18,12 @@ def products(request):
             products = products.filter(category__name__in=category)
             category = Category.objects.filter(name__in=category)
 
-
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
                 messages.error(request, "Please enter what you are looking for.")
                 return redirect(reverse('products'))
-            
+
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
 
@@ -35,6 +35,7 @@ def products(request):
     }
 
     return render(request, 'products/products.html', context)
+
 
 def product_details(request, product_id):
     """ Renders product details on a specific product"""
