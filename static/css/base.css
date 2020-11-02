@@ -93,6 +93,10 @@ body {
     color: white;
 }
 
+#plus-button:hover {
+    background-color: #545454;
+}
+
 #product-card:hover img {
     opacity: 0.4;
 }
