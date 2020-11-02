@@ -150,6 +150,29 @@ a:hover {
     border: none;
     max-width: 10em;
     font-weight: 900;
+    text-align: center;
+}
+
+.quantity {
+        color: #000;
+        font-size: 25px;
+        font-weight: 700;
+        line-height: 30px;
+        width: 5em;
+}
+
+.quantity .plus, .quantity .minus {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: center;
+    color: #fc7cbd;
+    width: 30px;
+    height: 30px;
+    }
+
+.plus:hover,
+.minus:hover {
+    color: #CDCDCD;
 }
 
 /* Shopping Cart Page */

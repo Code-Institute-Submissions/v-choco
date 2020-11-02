@@ -27,7 +27,7 @@
                                     <div class="media">
                                         <img src="{{ item.product.image.url }}" class="align-self-center mr-3 img-thumbnail" alt="{{ item.product.name }}">
                                         <div class="media-body my-auto">
-                                          <h5>{{ item.product.name}}</h5>
+                                          <h5><a href="{% url 'product_details' item.product.id %}">{{ item.product.name}}</a></h5>
                                           <p>${{ item.product.price }}</p>
                                         </div>
                                       </div>
@@ -50,6 +50,11 @@
                                         Spend ${{ free_shipping_delta|floatformat:2 }} more to get free shipping!
                                     </p>
                                 {% endif %}
+                                <div class="row mt-3">
+                                    <div class="col">
+                                         <a class="btn btn-sm btn-outline-secondary" href="{% url 'products' %}"><i class="fas fa-arrow-circle-left"></i> Continue Shopping</a>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
