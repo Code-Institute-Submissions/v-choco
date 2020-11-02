@@ -29,9 +29,20 @@ a:hover {
     color: #545454;
 }
 
+/* Free shipping banner */
+
+#free-shipping-banner {
+    background-color: #8ecbb5;
+    color: white;
+    font-weight: 400;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /*Navigation bar */
 #nav {
     background-color: #2caead;
+    width: 100%;
 }
 
 .dropdown-menu {

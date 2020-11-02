@@ -1,7 +1,7 @@
 from django.conf import settings
 
 
-def bag_contents(request):
+def cart_contents(request):
 
     cart_items = []
     order_total = 0
