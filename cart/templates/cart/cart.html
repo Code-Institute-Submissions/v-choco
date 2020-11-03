@@ -34,6 +34,11 @@
                                 </td>
                                 <td>
                                     <p>{{ item.quantity }}</p>
+                                    <form class="form" action="{% url 'remove_from_cart' item.product.id %}" method="POST">
+                                        {% csrf_token %}
+                                        <input type="submit" class="btn btn-sm btn-outline-danger text-uppercase my-2" value="Remove from Cart">
+                                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                    </form>
                                 </td>
                                 <td>
                                     <p>${{ item.product.price  }}</p>
@@ -50,11 +55,6 @@
                                         Spend ${{ free_shipping_delta|floatformat:2 }} more to get free shipping!
                                     </p>
                                 {% endif %}
-                                <div class="row mt-3">
-                                    <div class="col">
-                                         <a class="btn btn-sm btn-outline-secondary" href="{% url 'products' %}"><i class="fas fa-arrow-circle-left"></i> Continue Shopping</a>
-                                    </div>
-                                </div>
                             </td>
                         </tr>
                     </tbody>
