@@ -28,8 +28,18 @@ def remove_from_cart(request, item_id):
     """
     Remove product from cart
     """
-    print(request.POST)
     cart = request.session.get('cart', {})
     cart.pop(item_id)
+    request.session['cart'] = cart
+    return redirect(reverse('view_cart'))
+
+
+def update_quantity(request, item_id):
+    """
+    Updates the quantity of the specified product
+    """
+    quantity = int(request.POST.get('quantity'))
+    cart = request.session.get('cart', {})
+    cart[item_id] = quantity
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
