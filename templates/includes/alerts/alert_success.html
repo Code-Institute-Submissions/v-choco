@@ -12,7 +12,7 @@
     {% if grand_total %}
       <hr/>
       <div class="bg-white">
-        <div class="cart-notification bg-white">
+        <div class="d-none d-md-inline">
           <h4 class="text-center">Your Cart</h4>
             {% for item in cart_items %}
               <div class="row">
@@ -33,7 +33,6 @@
               </div>
               <hr>
             {% endfor %}
-          </div>
           <div class="row">
               <div class="col">
                   <strong><p class="mt-1 mb-1">
@@ -46,8 +45,8 @@
                     <span class="text-uppercase">Go to Cart</span>
                 </a>
               </div>
+            </div>
         </div>
       </div>
     {% endif %}
-  </div>
 </div>

@@ -184,13 +184,10 @@ a:hover {
     position: fixed;
     top: 110px;
     right: 15px;
-    width: 60%
-}
-
-.cart-notification {
-    height: 300px;
+    width: 50%;
     overflow-x: hidden;
     overflow-y: auto;
-    float: right;
+    max-height: 60%;
 }
+
 
