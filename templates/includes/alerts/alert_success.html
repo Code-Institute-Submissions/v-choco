@@ -1,0 +1,53 @@
+<div class="alert alert-success text-center" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <i class="fas fa-laugh-beam mr-2"></i>Success!
+  <hr>
+  <div class="row">
+    <div class="col mb-1">
+        {{ message }}
+    </div>
+  </div>
+    {% if grand_total %}
+      <hr/>
+      <div class="bg-white">
+        <div class="cart-notification bg-white">
+          <h4 class="text-center">Your Cart</h4>
+            {% for item in cart_items %}
+              <div class="row">
+                  <div class="col-3 my-1 mx-3">
+                      <img class="w-100" src="{{ item.product.image.url }}">
+                  </div>
+                  <div class="col-4">
+                      <p class="text-left"><strong>{{ item.product.name }}</strong><br>
+                      <span class="small">Quantity: {{ item.quantity }}</span></p>
+                  </div>
+                  <div class="col-4">
+                    <form class="form text-center" action="{% url 'remove_from_cart' item.product.id %}" method="POST">
+                      {% csrf_token %}
+                      <input type="submit" class="btn text-danger btn-link" value="Remove">
+                      <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                    </form>
+                  </div>
+              </div>
+              <hr>
+            {% endfor %}
+          </div>
+          <div class="row">
+              <div class="col">
+                  <strong><p class="mt-1 mb-1">
+                      Total: ${{ total|floatformat:2 }}
+                  </p></strong>
+                  <a href="{% url 'view_cart' %}" class="btn btn-outline-secondary text-uppercase mb-2">
+                      <span class="text-uppercase">Checkout</span>
+                  </a>
+                  <a href="{% url 'view_cart' %}" class="btn btn-outline-secondary text-uppercase mb-2">
+                    <span class="text-uppercase">Go to Cart</span>
+                </a>
+              </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>

@@ -147,9 +147,8 @@ a:hover {
 
 .quantity-input {
     background-color: white;
-    border: none;
-    max-width: 10em;
-    font-weight: 900;
+    max-width: 8em;
+    font-weight: 800;
     text-align: center;
 }
 
@@ -177,3 +176,21 @@ a:hover {
     border-radius: 50%;
     width: 30%;
 }
+
+/* Alerts */
+
+.message-container {
+    z-index: 99999;
+    position: fixed;
+    top: 110px;
+    right: 15px;
+    width: 60%
+}
+
+.cart-notification {
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    float: right;
+}
+
