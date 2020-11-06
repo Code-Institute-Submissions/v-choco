@@ -35,15 +35,15 @@
             {% endfor %}
           <div class="row">
               <div class="col">
-                  <strong><p class="mt-1 mb-1">
+                  <strong><p class="mt-1 mb-2">
                       Total: ${{ total|floatformat:2 }}
                   </p></strong>
-                  <a href="{% url 'view_cart' %}" class="btn btn-outline-secondary text-uppercase mb-2">
-                      <span class="text-uppercase">Checkout</span>
+                  <a href="{% url 'view_cart' %}" class="btn btn-outline-secondary mb-2">
+                    View Cart
                   </a>
-                  <a href="{% url 'view_cart' %}" class="btn btn-outline-secondary text-uppercase mb-2">
-                    <span class="text-uppercase">Go to Cart</span>
-                </a>
+                  <a href="{% url 'checkout' %}" class="btn btn-outline-secondary mb-2">
+                    Secure Checkout<i class="fas fa-lock ml-1"></i>
+                  </a>
               </div>
             </div>
         </div>

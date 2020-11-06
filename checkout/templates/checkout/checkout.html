@@ -20,8 +20,8 @@
                     <fieldset>
                         <legend class="fieldset-label">Contact Information</legend>
                         {% if not user.is_authenticated %}
-                            <div class="form-check form-check-inline float-right text-muted">
-                              Already have an account? <a class="text-black" href="{% url 'account_login' %}"> Log in</a>
+                            <div class="form-check form-check-inline float-right text-muted mb-1">
+                              Already have an account?<a class="text-black ml-1" href="{% url 'account_login' %}"> Log in</a>
                             </div>
                         {% endif %}
                         {{ order_form.email | as_crispy_field }}
@@ -67,7 +67,7 @@
             <div class="d-none d-lg-block col-lg-5 mt-4">
                 <h4 class="mb-5 text-center">Your Order Summary</h4>
                 {% for item in cart_items %}
-                    <div class="row my-1">
+                    <div class="row my-2">
                         <div class="col-2">
                             <a href="{% url 'product_details' item.product.id %}">
                                 <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.name }}">
@@ -105,4 +105,11 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
