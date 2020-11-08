@@ -57,10 +57,10 @@
                     <div class="float-left my-3">
                         <a class="btn btn-sm btn-outline-secondary" href="{% url 'view_cart' %}"><i class="fas fa-arrow-circle-left"></i> Return to Cart</a>
                     </div>
-                    <div class="float-right my-3">
-                        <a href="{% url 'checkout' %}" class="btn btn-outline-secondary btn-lg">
+                    <div class="float-right my-3 submit-button">
+                        <button href="{% url 'checkout' %}" id="submit-button" class="btn btn-outline-secondary btn-lg">
                                 Submit Order <i class="fas fa-lock"></i>
-                        </a>
+                        </button>
                     </div>
                 </form>
             </div>
