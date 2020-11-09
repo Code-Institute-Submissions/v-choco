@@ -32,7 +32,7 @@ class Order(models.Model):
         """
         Updates total each time an item is added
         """
-        self.total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total_sum']
+        self.total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
         if self.total < settings.FREE_SHIPPING_THRESHOLD:
             self.shipping_cost = settings.STANDARD_SHIPPING_COST
         else:
@@ -57,7 +57,9 @@ class OrderLineItem(models.Model):
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
 
     def save(self, *args, **kwargs):
-        """ Overrides original save method """
+        """
+        Sets line item total and updates.
+        """
         self.lineitem_total = self.product.price * self.quantity
         super().save(*args, **kwargs)
 

@@ -15,7 +15,7 @@ def checkout(request):
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if request.method == 'POST':
-        cart = request.session.get('cart')
+        cart = request.session.get('cart', {})
 
         form_data = {
             'full_name': request.POST['full_name'],
@@ -42,16 +42,19 @@ def checkout(request):
                     order_line_item.save()
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "Oops! We can't find one of the goodies in your cart. \
-                        Please try again later.")
+                        "Oops! We can't find one of the goodies in your cart."
+                        "Please try again later.")
                     )
                     order.delete()
                     return redirect(reverse('view_cart'))
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('view_cart'))
+            return redirect(reverse('checkout_success', args=[order.order_number]))
+
         else:
-            messages.error(request, 'There was an error processing your request. \
-                Please try again later.')
+            messages.error(request, (
+                "There was an error processing your request."
+                "Please try again later.")
+            )
     else:
         cart = request.session.get('cart')
         if not cart:
@@ -91,8 +94,8 @@ def checkout_success(request, order_number):
     messages.success(request, f'Your order has been placed! \
         Your order number is {order_number}.')
 
-    if 'bag' in request.session:
-        del request.session['bag']
+    if 'cart' in request.session:
+        del request.session['cart']
 
     template = 'checkout/checkout_success.html'
     context = {

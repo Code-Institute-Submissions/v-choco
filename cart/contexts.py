@@ -22,7 +22,7 @@ def cart_contents(request):
         })
 
     if total < settings.FREE_SHIPPING_THRESHOLD:
-        shipping = total * Decimal(settings.STANDARD_SHIPPING_COST / 100)
+        shipping = settings.STANDARD_SHIPPING_COST
         free_shipping_delta = settings.FREE_SHIPPING_THRESHOLD - total
     else:
         shipping = 0
