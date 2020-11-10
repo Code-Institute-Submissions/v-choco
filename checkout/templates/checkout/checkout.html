@@ -61,6 +61,10 @@
                         <button href="{% url 'checkout' %}" id="submit-button" class="btn btn-outline-secondary btn-lg">
                                 Submit Order <i class="fas fa-lock"></i>
                         </button>
+                        <button class="btn btn-outline-secondary btn-lg" type="button" disabled id="loading-button">
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            Processing ...
+                          </button>
                     </div>
                 </form>
             </div>
@@ -104,6 +108,9 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div>
+
     </div>
 {% endblock %}
 
