@@ -8,19 +8,77 @@
 {% block content %}
     <div class="container">
         <div class="row">
-            <div class="col text-center mt-4">
+            <div class="col text-center my-4">
                 <h1 class="mb-3">Your order has been received!</h1>
                 <p>We have sent a confirmation email to {{ order.email }}. Your chocolate will be with you in no time!</p>
+                <hr>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-lg-6 mx-auto"></div>
+            <div class="col-10 col-md-6 order-last my-2">
+                {% for item in order.lineitems.all %}
+                    <div class="row my-2">
+                        <div class="col-2">
+                            <a href="{% url 'product_details' item.product.id %}">
+                                <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                            </a>
+                        </div>
+                        <div class="col-7">
+                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                            <p class="small text-muted my-0">Quantity: {{ item.quantity }}</p>
+                        </div>
+                        <div class="col-3">
+                            <p class="small text-muted my-auto text-right">${{ item.product.price }} each</p>
+                        </div>
+                    </div>
+                {% endfor %}
+                <hr>
+                <div class="row text-left">
+                    <div class="col-7">
+                        <p class="my-0">Subtotal:</p>
+                        <p class="my-0">Shipping:</p>
+                    </div>
+                    <div class="col-5 text-right">
+                        <p class="my-0">${{ order.total }}</p>
+                        <p class="my-0">${{ order.shipping_cost }}</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row text-left">
+                    <div class="col-7">
+                        <p>Total:</p>
+                    </div>
+                    <div class="col-5 text-right">
+                        <p class="my-0"><strong>${{ order.grand_total }}</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 col-md-6 border my-2">
+                <p class="mt-2 mb-0"><strong>Order Number:</strong> {{ order.order_number }}</p>
+                <p class="my-0"><strong>Order Date:</strong> {{ order.date }}</p>
+                <hr>
+                <p class="my-0"><strong>Shipping Address:</strong></p>
+                <p class="my-0">{{ order.full_name }}</p>
+                <p class="my-0">{{ order.street_address1 }}</p>
+                {% if order.street_address2 %}
+                    <p class="my-0">{{ order.street_address2 }}</p>
+                {% endif %}
+                {% if order.county %}
+                    <p class="my-0">{{ order.county }}</p>
+                {% endif %}
+                <p class="my-0">{{ order.town_or_city }}</p>
+                {% if order.postcode %}
+                    <p class="my-0">{{ order.postcode }}</p>
+                {% endif %}
+                <p class="my-0">{{ order.country }}</p>
+                <p class="mb-2">{{ order.phone_number }}</p>
+            </div>
         </div>
-        <div class="row">
+        <div class="row mt-3">
             <div class="col-12 col-lg-6 text-left">
                 <p>
                     <a class="btn btn-outline-secondary" href="{% url 'products' %}"
-                    ><i class="fas fa-arrow-circle-left"></i>Go To Your Account</a
+                    ><i class="fas fa-arrow-circle-left"></i> Go To Your Account</a
                     >
                 </p>
             </div>
