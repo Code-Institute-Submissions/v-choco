@@ -25,6 +25,7 @@
                             </div>
                         {% endif %}
                         {{ order_form.email | as_crispy_field }}
+                        {{ order_form.phone_number | as_crispy_field }}
                     </fieldset>
                     <fieldset>
                         <legend class="fieldset-label">Shipping Address</legend>
@@ -32,10 +33,9 @@
                         {{ order_form.street_address1 | as_crispy_field }}
                         {{ order_form.street_address2 | as_crispy_field }}
                         {{ order_form.town_or_city | as_crispy_field }}
-                        {{ order_form.country | as_crispy_field }}
                         {{ order_form.postcode | as_crispy_field }}
                         {{ order_form.county | as_crispy_field }}
-                        {{ order_form.phone_number | as_crispy_field }}
+                        {{ order_form.country | as_crispy_field }}
                         <div class="form-check form-check-inline float-right">
 							{% if user.is_authenticated %}
 								<label class="form-check-label" for="id-save-info">	Save this information for next time</label>
