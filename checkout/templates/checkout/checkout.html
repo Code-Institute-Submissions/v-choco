@@ -38,10 +38,10 @@
                         {{ order_form.phone_number | as_crispy_field }}
                         <div class="form-check form-check-inline float-right">
 							{% if user.is_authenticated %}
-								<label class="form-check-label" for="id-save-details">	Save this information for next time</label>
-                                <input class="form-check-input" type="checkbox" id="id-save-details" name="save-details" checked>
+								<label class="form-check-label" for="id-save-info">	Save this information for next time</label>
+                                <input class="form-check-input" type="checkbox" id="id-save-info" name="save-info" checked>
 							{% else %}
-								<label class="form-check-label text-muted" for="id-save-details">
+								<label class="form-check-label text-muted" for="id-save-info">
                                     <a class="text-black" href="{% url 'account_signup' %}">Create an account</a> to save this information 
                                 </label>
 							{% endif %}
@@ -53,6 +53,8 @@
                         <div id="card-element"></div>
                         <!-- Will display card errors -->
                         <div class="text-danger" id="card-errors" role="alert"></div>
+                        <!-- Passes client secret ID to view in order to get intent id -->
+                        <input type="hidden" value="{{ client_secret }}" name="client_secret">
                     </fieldset>
                     <div class="float-left my-3">
                         <a class="btn btn-sm btn-outline-secondary" href="{% url 'view_cart' %}"><i class="fas fa-arrow-circle-left"></i> Return to Cart</a>
