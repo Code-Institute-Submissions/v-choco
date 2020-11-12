@@ -190,9 +190,9 @@ a:hover {
     max-height: 60%;
 }
 
-/* Input boxes */
+/* Search boxes */
 
-.input-field {
+.search-field {
     box-sizing: border-box;
     height: 40px;
     padding: 10px 12px;
@@ -201,5 +201,10 @@ a:hover {
     background-color: white;
     color: #545454;
     font-family: 'Karla', sans-serif;
+    border-color: #CDCDCD;
+}
+
+.search-field::placeholder {
+    color: #CDCDCD;
 }
 

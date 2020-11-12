@@ -74,14 +74,16 @@
                 <p class="mb-2">{{ order.phone_number }}</p>
             </div>
         </div>
-        <div class="row mt-3">
-            <div class="col-12 col-lg-6 text-left">
-                <p>
-                    <a class="btn btn-outline-secondary" href="{% url 'products' %}"
-                    ><i class="fas fa-arrow-circle-left"></i> Go To Your Account</a
-                    >
-                </p>
+        {% if from_profile %}
+            <div class="row mt-3">
+                <div class="col-12 col-lg-6 text-left">
+                    <p>
+                        <a class="btn btn-outline-secondary" href="{% url 'profile' %}"
+                        ><i class="fas fa-arrow-circle-left"></i> Go To Your Account</a
+                        >
+                    </p>
+                </div>
             </div>
-        </div>
+        {% endif %}
     </div>
 {% endblock %}

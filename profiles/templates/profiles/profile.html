@@ -22,8 +22,31 @@
                 </form>
             </div>
             <div class="col-12 col-lg-6">
-                <p>Your past orders</p>
-                {{ orders }}
+                <p>Your Past Orders</p>
+                <div class="order-history table-responsive">
+                    <table class="table table-borderless table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Date</th>
+                                <th scope="col">Order Number</th>
+                                <th scope="col">Total</th>
+                              </tr>
+                        </thead>
+                        <tbody>
+                            {% for order in orders %}
+                                <tr>
+                                    <td>{{ order.date }}</td>
+                                    <td>
+                                        <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
+                                            {{ order.order_number|trancatechars:8 }}
+                                        </a>
+                                    </td>
+                                    <td>$ {{ order.grand_total }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
