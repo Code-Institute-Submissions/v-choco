@@ -190,4 +190,16 @@ a:hover {
     max-height: 60%;
 }
 
+/* Input boxes */
+
+.input-field {
+    box-sizing: border-box;
+    height: 40px;
+    padding: 10px 12px;
+    border: 1px solid;
+    border-radius: 4px;
+    background-color: white;
+    color: #545454;
+    font-family: 'Karla', sans-serif;
+}
 

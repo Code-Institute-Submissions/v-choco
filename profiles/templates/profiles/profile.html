@@ -9,7 +9,21 @@
     <div class="container">
         <div class="row">
             <div class="col text-center mt-4">
-                <h1>My Profile</h1>
+                <h1>Your Account</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <p>Your current shipping address</p>
+                <form class="mt-2" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button class="btn btn-outline-secondary float-right">Update Address</button>
+                </form>
+            </div>
+            <div class="col-12 col-lg-6">
+                <p>Your past orders</p>
+                {{ orders }}
             </div>
         </div>
     </div>
