@@ -7,8 +7,11 @@ from products.models import Product
 
 def view_cart(request):
     """ Renders the Shopping Cart page """
-
-    return render(request, 'cart/cart.html')
+    template = "cart/cart.html"
+    context = {
+        'cart_page': True,
+    }
+    return render(request, template, context)
 
 
 def add_to_cart(request, item_id):
