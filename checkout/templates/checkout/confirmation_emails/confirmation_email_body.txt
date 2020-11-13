@@ -1,0 +1,23 @@
+
+Thank you for your purchase!
+
+Hi {{ order.full_name }}, we're getting your order ready to be shipped. We will notify you when it has been sent.
+
+Order Summary:
+Date: {{ order.date }}
+
+Subtotal: ${{ order.total }}
+Shipping: ${{ order.shipping_cost }}
+Total: ${{ order.grand_total }}
+
+Customer Information:
+
+Shipping Address
+{{ order.full_name }}
+{{ order.street_address1 }}
+{{ order.town_or_city }}
+{{ order.country }}
+
+If you have any questions, reply to this email or contact us at {{ contact_email }}.
+
+Thank you for your order!
