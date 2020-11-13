@@ -15,9 +15,12 @@ def profile(request):
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Your profile has been updated')
-
-    form = UserProfileForm(instance=profile)
+            messages.success(request, "Your profile has been updated")
+        else:
+            messages.error(request, ("Failed to update profile."
+                                     " Please try again later."))
+    else:
+        form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
 
     template = 'profiles/profile.html'
@@ -34,7 +37,7 @@ def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
 
     messages.info(request, (
-        'This is a summary of an order you placed in the past'
+        "This is a summary of an order you placed in the past"
     ))
 
     template = 'checkout/checkout_success.html'
@@ -44,4 +47,3 @@ def order_history(request, order_number):
     }
 
     return render(request, template, context)
-

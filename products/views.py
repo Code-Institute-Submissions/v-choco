@@ -23,7 +23,7 @@ def products(request):
             query = request.GET['q']
             if not query:
                 messages.error(request, ("Please enter what you are"
-                                         "looking for."))
+                                         " looking for."))
                 return redirect(reverse('products'))
 
             queries = Q(name__icontains=query) | Q(description__icontains=query)
@@ -53,10 +53,22 @@ def product_details(request, product_id):
 
 def add_product(request):
     """ Adds products to store """
-    form = ProductForm()
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Added new product')
+            return redirect(reverse('add_product'))
+        else:
+            messages.error(request, ("Failed to add the new product,"
+                                     " please try again later."))
+    else:
+        form = ProductForm()
+
     template = 'products/add_product.html'
     context = {
         'form': form,
+        'add_product': True,
     }
 
     return render(request, template, context)
