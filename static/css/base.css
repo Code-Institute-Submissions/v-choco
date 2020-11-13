@@ -192,7 +192,7 @@ a:hover {
 
 /* Search boxes */
 
-.search-field {
+.search-field, .input-field {
     box-sizing: border-box;
     height: 40px;
     padding: 10px 12px;
@@ -202,6 +202,10 @@ a:hover {
     color: #545454;
     font-family: 'Karla', sans-serif;
     border-color: #CDCDCD;
+}
+
+.input-field::placeholder {
+    color: #CDCDCD;
 }
 
 .search-field::placeholder {
