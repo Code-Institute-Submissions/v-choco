@@ -35,7 +35,6 @@ def order_history(request, order_number):
 
     messages.info(request, (
         'This is a summary of an order you placed in the past'
-        f'The order number is {order_number}.'
     ))
 
     template = 'checkout/checkout_success.html'
