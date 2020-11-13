@@ -146,7 +146,7 @@
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                <div><i class="fas fa-user fa-lg mr-2"></i> My Account</div>
+                <div><i class="fas fa-user fa-lg mr-2"></i></div>
               </a>
               <div
                 class="dropdown-menu border-0"
@@ -154,9 +154,9 @@
               >
                 {% if request.user.is_authenticated %} 
                   {% if request.user.is_superuser %}
-                      <a href="" class="dropdown-item">Product Management</a>
+                      <a href="" class="dropdown-item">Site Management</a>
                   {% endif %}
-                  <a href="" class="dropdown-item">My Profile</a>
+                  <a href="{% url 'profile' %}" class="dropdown-item">Account Details</a>
                   <a href="{% url 'account_logout' %}" class="dropdown-item"
                     >Logout</a
                   >
