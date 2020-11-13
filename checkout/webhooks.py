@@ -10,6 +10,7 @@ import json
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
+
 @require_POST
 @csrf_exempt
 def webhook(request):
