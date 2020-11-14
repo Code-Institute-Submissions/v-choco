@@ -108,7 +108,24 @@ a:hover {
     vertical-align: middle;
     border-radius: 50%;
     background: #fc7cbd;
-  }
+}
+
+/* Product Admin pages */
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
 
 /* Code to create overlay adapted from W3schools */
 #plus-button {
