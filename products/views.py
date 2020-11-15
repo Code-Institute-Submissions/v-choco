@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from .models import Product, Category
-from .forms import ProductForm
+from .models import Product, Category, ProductReview
+from .forms import ProductForm, ProductReviewForm
 
 
 def products(request):
@@ -42,11 +42,25 @@ def products(request):
 
 def product_details(request, product_id):
     """ Renders product details on a specific product"""
-
+    form = ProductReviewForm()
     product = get_object_or_404(Product, pk=product_id)
+
+    # Add Product Review
+
+    if request.method == 'POST' and request.user.is_authenticated:
+        rating = request.POST.get('rating', 3)
+        content = request.POST.get('content', '')
+
+        ProductReview.objects.create(product=product,
+                                     user=request.user,
+                                     rating=rating,
+                                     content=content)
+
+        messages.success(request, "Added your review!")
 
     context = {
         'product': product,
+        'form': form,
     }
 
     return render(request, 'products/product_details.html', context)
