@@ -13,11 +13,3 @@ class NewsletterSignupForm(forms.ModelForm):
     class Meta:
         model = NewsletterSignup
         fields = ('email', )
-
-    def clean_email(self, *args, **kwargs):
-        email = self.cleaned_data.get("email")
-        print(email)
-        query = NewsletterSignup.objects.filter(email__iexact=email)
-        if query.exists():
-            raise forms.ValidationError("This email is already subscribed.")
-        return email

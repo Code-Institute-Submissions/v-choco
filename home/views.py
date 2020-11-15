@@ -10,14 +10,15 @@ def index(request):
     if request.method == "POST":
         email = request.POST["email"]
         query = NewsletterSignup.objects.filter(email__iexact=email)
-        if query.exists():
-            messages.error(request, "You're already subscribed!")
-        else:
-            email = request.POST["email"]
-            new_signup = NewsletterSignup()
-            new_signup.email = email
-            new_signup.save()
-            messages.success(request, "Successfully subscribed")
+        if form.is_valid:
+            if query.exists():
+                messages.error(request, "You're already subscribed!")
+            else:
+                email = request.POST["email"]
+                new_signup = NewsletterSignup()
+                new_signup.email = email
+                new_signup.save()
+                messages.success(request, "Successfully subscribed")
 
     context = {
         'form': form
