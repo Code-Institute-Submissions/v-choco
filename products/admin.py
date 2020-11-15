@@ -22,6 +22,17 @@ class CategoryAdmin(admin.ModelAdmin):
     )
 
 
+class ProductReviewAdmin(admin.ModelAdmin):
+    list_display = (
+        'timestamp',
+        'product',
+        'user',
+        'rating',
+    )
+
+    ordering = ('timestamp',)
+
+
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(ProductReview)
+admin.site.register(ProductReview, ProductReviewAdmin)

@@ -36,9 +36,9 @@
             {% endif %}
         </div>
        </div>
+       <hr class="my-5">
        <div class="row">
-           <hr>
-            <div class="col-12">
+            <div class="col-12 col-md-6">
                 <h3>Reviews</h3>
                 <hr>
                 {% for review in product.reviews.all %}
@@ -47,12 +47,15 @@
                         <strong>Rating: </strong> {{ review.rating }}
                     </p>
                     {{ review.content }}
+                    <hr>
                     {% empty %}
                         <p>No reviews for this product.</p>
+                        <hr>
                 {% endfor %}
             </div>
-            <div class="col-12">
+            <div class="col-12 col-md-6">
                 {% if request.user.is_authenticated %}
+                    <h4>Add a Review</h4>
                     <form method="POST" action="" class="form">
                         {% csrf_token %}
                         {{ form | crispy }}
