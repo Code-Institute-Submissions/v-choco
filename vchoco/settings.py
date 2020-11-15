@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     'checkout',
     'crispy_forms',
     'profiles',
-    'newsletter',
+    'marketing',
 ]
 
 MIDDLEWARE = [
@@ -183,8 +183,3 @@ STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET', '')
 DEFAULT_FROM_EMAIL = 'debra.wolford@gmail.com'
-
-# Mailchimp
-MAILCHIMP_API_KEY = os.environ.get('MAILCHIMP_API_KEY', '')
-MAILCHIMP_DATA_CENTER = 'us15'
-MAILCHIMP_EMAIL_LIST_ID = '966f3d75cb'

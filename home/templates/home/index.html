@@ -39,13 +39,13 @@
                 <p class="text-big">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
               </div>
               <div class="col-md-8">
-                <form action="{% url 'newsletter_signup' %}" method="POST">
-                  {% csrf_token %}
-                  <div class="form-group">
-                      {{ form|crispy }}
-                      <button type="submit" class="submit">Register</button>
-                  </div>
-                </form>
+              <form action="{% url 'email-list-signup' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form|crispy }}
+                    <button type="submit" class="submit btn btn-outline-secondary">Signup</button>
+                </div>
+              </form>
               </div>
             </div>
           </div>
