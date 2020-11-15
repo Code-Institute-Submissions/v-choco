@@ -1,9 +1,15 @@
 from django.shortcuts import render
+from newsletter.forms import NewsletterSignupForm
 
 # Views
 
 
 def index(request):
     """ Renders the Index page """
+    form = NewsletterSignupForm()
 
-    return render(request, 'home/index.html')
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'home/index.html', context)
