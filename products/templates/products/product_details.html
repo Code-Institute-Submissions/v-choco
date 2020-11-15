@@ -19,7 +19,7 @@
                     {{ product.category.friendly_name }}</a>
             </p>
             <h5>$ {{ product.price }}</h5>
-            <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
+            <form class="form mb-5" action="{% url 'add_to_cart' product.id %}" method="POST">
                 {% csrf_token %}
                 <div class="form-group">
                     <input class="form-control text-center quantity-input mx-auto" type="number" name="quantity" value="1" min="1" max="99">
@@ -43,8 +43,8 @@
                 <hr>
                 {% for review in product.reviews.all %}
                     <p>
-                        <strong>Date: </strong> {{ review.timestamp}},
-                        <strong>Rating: </strong> {{ review.rating }}
+                        <span class="text-left"><strong>Rating: </strong> {{ review.rating }}</span>
+                        <small class="float-right text-muted"><strong>Date: </strong> {{ review.timestamp|date:"Y-m-d"}}</small>
                     </p>
                     {{ review.content }}
                     <hr>
@@ -60,7 +60,7 @@
                         {% csrf_token %}
                         {{ form | crispy }}
                         <div class="text-right">
-                            <button class="btn btn-outline-secondary float-right" type="submit">Add Review</button>
+                            <button class="btn btn-outline-secondary mb-5" type="submit">Add Review</button>
                         </div>
                     </form>
                 {% else %}

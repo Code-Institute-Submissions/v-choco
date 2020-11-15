@@ -41,6 +41,6 @@ class ProductReview(models.Model):
     user = models.ForeignKey(User,
                              related_name="reviews",
                              on_delete=models.CASCADE)
-    content = models.TextField(blank=True, null=True)
+    content = models.CharField(max_length=254, null=True, blank=True)
     rating = models.IntegerField()
     timestamp = models.DateTimeField(auto_now_add=True)

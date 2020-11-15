@@ -25,7 +25,9 @@ class ProductForm(forms.ModelForm):
 
 class ProductReviewForm(forms.ModelForm):
     content = forms.CharField(max_length=200,
-                              label="",)
+                              label="",
+                              required=False,
+                              widget=forms.Textarea)
     CHOICES = (
             ('1', '1'),
             ('2', '2'),
@@ -33,8 +35,16 @@ class ProductReviewForm(forms.ModelForm):
             ('4', '4'),
             ('5', '5'),
             )
-    rating = forms.ChoiceField(widget=forms.Select, choices=CHOICES)
+    rating = forms.ChoiceField(widget=forms.Select,
+                               choices=CHOICES,
+                               initial='3')
 
     class Meta:
         model = ProductReview
         fields = ('rating', 'content', )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'input-field'
