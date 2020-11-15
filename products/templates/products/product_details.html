@@ -14,10 +14,11 @@
         </div>
         <div class="col-12 col-md-6 text-center mt-2">
             <h4>{{ product.name }}</h4>
-            <p class="small">
-                <a href="{% url 'products' %}?category={{ product.category.name }}">
-                    {{ product.category.friendly_name }}</a>
-            </p>
+            {% if product.get_rating != Null %}
+                <p class="small">
+                    <i class="fas fa-star"></i> {{ product.get_rating|floatformat:1 }} / 5 - <a href="#reviews">Write a review</a>
+                </p>
+            {% endif %}
             <h5>$ {{ product.price }}</h5>
             <form class="form mb-5" action="{% url 'add_to_cart' product.id %}" method="POST">
                 {% csrf_token %}
@@ -53,7 +54,7 @@
                         <hr>
                 {% endfor %}
             </div>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6" id="reviews">
                 {% if request.user.is_authenticated %}
                     <h4>Add a Review</h4>
                     <form method="POST" action="" class="form">
