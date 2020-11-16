@@ -46,6 +46,11 @@
                             </div>
                         </div>
                         <h5 class="card-footer text-center mb-0">{{ product.name }}</h5>
+                        {% if product.get_rating != Null %}
+                            <p class="small mb-1 mt-0 text-center">
+                                <i class="fas fa-star"></i> {{ product.get_rating|floatformat:1 }} / 5
+                            </p>
+                        {% endif %}
                     </div>
                     {% if request.user.is_superuser %}
                         <p class="text-center text-small">
