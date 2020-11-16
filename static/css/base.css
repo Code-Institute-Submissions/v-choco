@@ -40,40 +40,58 @@ a:hover {
 }
 
 /*Navigation bar */
-#nav {
-    background-color: #2caead;
+nav {
+    background-color: #ffffff;
     width: 100%;
+    font-size: large;
 }
 
-.dropdown-menu {
-    background-color: #2caead;
-}
-
-.dropdown-menu a:hover {
-    background-color: #2caead;
+#navbar a {
     color: #8ecbb5;
+    font-weight: 600;
 }
 
-#nav a {
-    color: white;
+#navbar a:hover {
+    color: #2caead;
 }
 
-#nav a:hover {
-    color: #8ecbb5;
-}
-
-.navbar .navbar-toggler-icon {
-    background-image: url('https://mdbootstrap.com/img/svg/hamburger2.svg?color=fff');
-}
 
 .navbar-toggler,
 .navbar-toggler:focus,
-.navbar-toggler:active,
-.navbar-toggler-icon:focus {
+.navbar-toggler:active {
     outline: none;
     border: none;
     box-shadow: none;
 }
+
+.search-box input {		
+	border-color: #ffffff;        
+    box-shadow: none;
+}
+
+.navbar .search-dropdown .dropdown-toggle::after {
+	display: none;
+}
+
+.navbar .user-dropdown .dropdown-toggle::after {
+	display: none;
+}
+
+.navbar .search-dropdown .dropdown-menu {
+	width: 300px;
+	padding: 5px;
+	left: auto;
+	right: 0;
+}
+
+.navbar .user-dropdown .dropdown-menu {
+	width: 200px;
+    padding: 5px;
+    left:auto;
+	right: 0;
+	font-size: 16px;
+}
+
 
 /* Buttons */
 .btn-outline-light:hover {
@@ -207,26 +225,5 @@ a:hover {
     max-height: 60%;
 }
 
-/* Search boxes */
-
-.search-field, .input-field {
-    box-sizing: border-box;
-    height: 40px;
-    padding: 10px 12px;
-    border: 1px solid;
-    border-radius: 4px;
-    background-color: white;
-    color: #545454;
-    font-family: 'Karla', sans-serif;
-    border-color: #CDCDCD;
-}
-
-.input-field::placeholder {
-    color: #CDCDCD;
-}
-
-.search-field::placeholder {
-    color: #CDCDCD;
-}
 
 

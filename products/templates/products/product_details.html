@@ -44,7 +44,7 @@
                 <hr>
                 {% for review in product.reviews.all %}
                     <p>
-                        <span class="text-left"><strong>Rating: </strong> {{ review.rating }}</span>
+                        <span class="text-left"><strong>Rating: <i class="fas fa-star"></i> </strong> {{ review.rating }} / 5</span>
                         <small class="float-right text-muted"><strong>Date: </strong> {{ review.timestamp|date:"Y-m-d"}}</small>
                     </p>
                     {{ review.content }}

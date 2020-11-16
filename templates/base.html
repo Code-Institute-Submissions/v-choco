@@ -67,126 +67,61 @@
             </h5>
         </div>
       </div>
-      <nav id="nav" class="navbar navbar-white">
+      <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
         <a class="navbar-brand" href="{% url 'home' %}">
           <img
             src="{% static '/images/vchoco-logo.png' %}"
             height="30"
             alt="V-Choco logo"
           />
-        </a>
-        <div class="navbar-nav dropdown ml-auto">
-          <a
-            class="nav-link"
-            href="{% url 'view_cart' %}"
-          >
-            <div>
-              <p>
-                <i class="fas fa-shopping-cart fa-lg mr-2"></i>
-                {% if total %} ${{ total|floatformat:2 }} {% endif %}
-              </p>
-            </div>
-          </a>
-        </div>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarToggler"
-          aria-controls="navbarToggler"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        </a>  		
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarToggler">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link"
-                href="#"
-                id="navbar-products"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <div>Products</div>
-              </a>
-              <div
-                class="dropdown-menu border-0"
-                aria-labelledby="navbar-products"
-              >
-                <a href="{% url 'products' %}" class="dropdown-item"
-                  >All Products</a
-                >
-                <a
-                  href="{% url 'products' %}?category=seasonal_products"
-                  class="dropdown-item"
-                  >Seasonal Selections</a
-                >
-                <a
-                  href="{% url 'products' %}?category=bonbon_boxes"
-                  class="dropdown-item"
-                  >Bonbons</a
-                >
+        <!-- Collection of nav links, forms, and other content for toggling -->
+        <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+          <div class="navbar-nav mx-md-auto">
+            <a href="{% url 'products' %}" class="nav-item nav-link mr-2 mt-lg-2">All Products</a>
+            <a href="{% url 'products' %}?category=seasonal_products" class="nav-item nav-link mr-2 mt-lg-2">Seasonal Selection</a>			
+            <a href="{% url 'products' %}?category=bonbon_boxes" class="nav-item nav-link mt-lg-2">Bonbons</a>			
+          </div>		
+          <div class="navbar-nav ml-auto">			
+            <div class="nav-item dropdown search-dropdown">
+              <a data-toggle="dropdown" class="nav-item nav-link dropdown-toggle" href="#"><i class="fa fa-search"></i></a>
+              <a data-toggle="dropdown" class="nav-item nav-link dropdown-toggle d-none" href="#"><i class="fa fa-close"></i></a>
+              <div class="dropdown-menu">
+                <div>
+                    <form method="GET" action="{% url 'products' %}">
+                      <div class="input-group search-box">								
+                        <input type="text" id="search" class="form-control" type="text" name="q" placeholder="Search here...">
+                        <div class="input-group-append">
+                          <button type="submit" class="btn btn-outline-secondary"><i class="fa fa-search"></i></button>
+                        </div>
+                      </div>
+                    </form>                        
+                  </div>
+                </div>
               </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Build Your Box</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Subscription Box</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link"
-                href="#"
-                id="user-options"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <div><i class="fas fa-user fa-lg mr-2"></i></div>
-              </a>
-              <div
-                class="dropdown-menu border-0"
-                aria-labelledby="user-options"
-              >
-                {% if request.user.is_authenticated %} 
-                  {% if request.user.is_superuser %}
+              <div class="nav-item dropdown user-dropdown">
+                <a data-toggle="dropdown" class="nav-item nav-link dropdown-toggle" href="#"><i class="fas fa-user "></i></a>
+                <div class="dropdown-menu">
+                  {% if request.user.is_authenticated %} 
+                    {% if request.user.is_superuser %}
                       <a href="{% url 'add_product' %}" class="dropdown-item">Site Management</a>
-                  {% endif %}
-                  <a href="{% url 'profile' %}" class="dropdown-item">Account Details</a>
-                  <a href="{% url 'account_logout' %}" class="dropdown-item"
-                    >Logout</a
-                  >
+                    {% endif %}
+                    <a href="{% url 'profile' %}" class="dropdown-item">Account Details</a>
+                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                   {% else %}
-                    <a href="{% url 'account_signup' %}" class="dropdown-item"
-                      >Register</a
-                    >
-                    <a href="{% url 'account_login' %}" class="dropdown-item"
-                      >Login</a
-                    >
+                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                    <a href="{% url 'account_login' %}" class="dropdown-item">Login</a >
                 {% endif %}
+                </div>
               </div>
-            </li>
-          </ul>
-          <form class="form-inline" method="GET" action="{% url 'products' %}">
-            <input
-              class="form-control mr-sm-2 search-field"
-              type="text"
-              name="q"
-              placeholder="Search"
-            />
-            <button
-              class="btn btn-sm btn-outline-light form-control"
-              type="submit"
-            >
-              <i class="fas fa-search"></i>
-            </button>
-          </form>
+            <a href="{% url 'view_cart' %}" class="nav-item nav-link"><i class="fas fa-shopping-cart"></i>{% if total %} ${{ total|floatformat:2 }} {% endif %}</a>
+          </div>
         </div>
       </nav>
+      <hr>
     </header>
 
     {% if messages %}
@@ -212,7 +147,21 @@
     
     {% block postloadjs %} 
     <script type="text/javascript">
+        // Shows messages
         $('.alert').alert('show');
+        $(document).ready(function(){
+          var searchDropdown = $(".search-dropdown");
+          var searchToggleButton = $(".search-dropdown .dropdown-toggle");
+          // Toggles between search and close icon for search dropdown
+          // Adapted from https://www.tutorialrepublic.com/codelab
+          searchDropdown.on("show.bs.dropdown", function(e){
+            searchToggleButton.toggleClass("d-none");
+          });
+          searchDropdown.on("hide.bs.dropdown", function(e){
+            searchToggleButton.addClass("d-none");
+            searchToggleButton.first().removeClass("d-none");
+          });
+        });
     </script>
     {% endblock %}
 

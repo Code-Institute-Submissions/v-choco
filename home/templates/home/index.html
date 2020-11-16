@@ -15,10 +15,10 @@
                 <a href="{% url 'products' %}"><img src="{% static '/images/homepage_carousel1.png' %}" class="d-block w-100" alt="V Choco"></a>
               </div>
               <div class="carousel-item">
-                <img src="{% static '/images/homepage_carousel2.png' %}" class="d-block w-100" alt="Build Your Box">
+                <a href="{% url 'products' %}?category=bonbon_boxes"><img src="{% static '/images/homepage_carousel2.png' %}" class="d-block w-100" alt="Bonbons"></a>
               </div>
               <div class="carousel-item">
-                <img src="{% static '/images/homepage_carousel3.png' %}" class="d-block w-100" alt="Subscribe">
+                <a href="{% url 'products' %}?category=seasonal_products"><img src="{% static '/images/homepage_carousel3.png' %}" class="d-block w-100" alt="Subscribe"></a>
               </div>
             </div>
             <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
@@ -32,16 +32,16 @@
           </div> 
         </section>
         <section class="newsletter bg-light">    
-          <div class="row">
-            <div class="col-10 col-md-5 text-center my-auto">
-              <h2 class="mt-1">Subscribe to our Newsletter!</h2>
+          <div class="row mb-5">
+            <div class="col-12 col-md-5 text-center my-auto">
+              <h2 class="mt-5">Subscribe to our Newsletter!</h2>
               <hr class="d-md-none">
             </div>
-            <div class="col-10 col-md-7 mb-2 mt-md-5">
-              <p class="mx-5">Sign up to be the first to hear about exclusive offers and our latest deals.</p>
-              <form action="{% url 'home' %}" method="POST">
+            <div class="col-8 col-md-7 mt-md-5 mx-auto">
+              <h5 class="text-center">Sign up to be the first to hear about exclusive offers and our latest deals.</h5>
+              <form class="form-inline" action="{% url 'home' %}" method="POST">
                 {% csrf_token %}
-                <div class="form-group text-center mx-5">
+                <div class="form-group text-center mx-auto">
                     {{ form|crispy }}
                     <input type="submit" value="Subscribe" class="submit btn btn-outline-secondary">
                 </div>

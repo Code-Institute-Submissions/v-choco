@@ -21,6 +21,7 @@ def index(request):
                 messages.success(request, "Successfully subscribed")
 
     context = {
-        'form': form
+        'form': form,
+        'home_page': True
     }
     return render(request, 'home/index.html', context)
