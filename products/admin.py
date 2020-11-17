@@ -30,7 +30,7 @@ class ProductReviewAdmin(admin.ModelAdmin):
         'rating',
     )
 
-    ordering = ('timestamp',)
+    ordering = ('-timestamp',)
 
 
 admin.site.register(Product, ProductAdmin)

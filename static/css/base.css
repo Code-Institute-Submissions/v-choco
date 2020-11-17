@@ -32,7 +32,7 @@ a:hover {
 /* Free shipping banner */
 
 #free-shipping-banner {
-    background-color: #8ecbb5;
+    background-color: #fc7cbd;
     color: white;
     font-weight: 400;
     margin-left: auto;
@@ -176,6 +176,26 @@ nav {
 
 #product-card:hover #plus-button {
     opacity: 1;
+}
+
+/* Home Page */
+
+.bg-pink {
+    background-color: #fc7cbd;
+}
+
+.review-carousel {
+    height: 300px;
+    color: #ffffff;
+}
+
+
+.bg-pink img {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    margin-left: 30px;
+    margin-top: 10px;
 }
 
 /* Product Details Page */
