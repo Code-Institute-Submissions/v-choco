@@ -24,10 +24,9 @@
        <div class="row">
            <div class="col text-left">
                 <p class=text-muted>
-                    {{ products|length }} Product(s){% if search %} found for <strong>"{{ search }}"</strong>{% endif %}
-                    {% if products|length is 0 %}
-                        <br/>
-                        <a class="btn btn-sm btn-outline-secondary" href="{% url 'products' %}"><i class="fas fa-arrow-circle-left"></i> Back To All Products</a>
+                    {{ products|length }} Product(s){% if search %} found for <strong>"{{ search }}"</strong>
+                    <br>
+                    <a class="btn btn-sm btn-outline-secondary" href="{% url 'products' %}"><i class="fas fa-arrow-circle-left"></i> Back To All Products</a>
                     {% endif %}
                 </p>
            </div>
