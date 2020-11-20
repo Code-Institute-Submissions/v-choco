@@ -1,0 +1,19 @@
+.input-field {
+    box-sizing: border-box;
+    height: 40px;
+    padding: 10px 12px;
+    border: 1px solid;
+    border-radius: 4px;
+    background-color: white;
+    color: #545454;
+    font-family: 'Karla', sans-serif;
+}
+
+.input-field::placeholder {
+    color: #CDCDCD;
+}
+
+.order-history {
+    max-height: 400px;
+    overflow-y: auto;
+}
