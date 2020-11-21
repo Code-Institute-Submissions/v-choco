@@ -6,9 +6,6 @@ from django.views.decorators.csrf import csrf_exempt
 from checkout.webhook_handler import StripeWH_Handler
 
 import stripe
-import json
-
-stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 @require_POST
@@ -18,17 +15,22 @@ def webhook(request):
     Listens for Stripe Webhooks
     """
     wh_secret = settings.STRIPE_WH_SECRET
+    stripe.api_key = settings.STRIPE_SECRET_KEY
+
     payload = request.body
     sig_header = request.META['HTTP_STRIPE_SIGNATURE']
     event = None
 
     try:
-        event = stripe.Event.construct_from(
-            json.loads(payload), stripe.api_key
+        event = stripe.Webhook.construct_event(
+                payload, sig_header, wh_secret
         )
     except ValueError as e:
         # Invalid payload
-        return HttpResponse(status=400)
+        return HttpResponse(content=e, status=400)
+    except stripe.error.SignatureVerificationError as e:
+        # Invalid signature
+        return HttpResponse(content=e, status=400)
     except Exception as e:
         return HttpResponse(content=e, status=400)
 
