@@ -61,9 +61,9 @@
                         <a class="btn btn-sm btn-outline-secondary" href="{% url 'view_cart' %}"><i class="fas fa-arrow-circle-left"></i> Return to Cart</a>
                     </div>
                     <div class="float-right my-3 submit-button">
-                        <a href="{% url 'checkout' %}" id="submit-button" class="btn btn-outline-secondary btn-lg">
+                        <button href="{% url 'checkout' %}" id="submit-button" class="btn btn-outline-secondary btn-lg">
                                 Submit Order <i class="fas fa-lock"></i>
-                        </a>
+                        </button>
                         <button class="btn btn-outline-secondary btn-lg" type="button" disabled id="loading-button">
                             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                             Processing ...
