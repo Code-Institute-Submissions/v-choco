@@ -1,0 +1,10 @@
+[
+    {
+       "pk":1,
+       "model":"marketing.newslettersignup",
+       "fields":{
+          "email":"test@test.com",
+          "timestamp":"2016-05-18T15:37:36.993048Z"
+       }
+    }
+ ]
