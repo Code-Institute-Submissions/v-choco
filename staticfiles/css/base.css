@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+html {
+    height: 100%
+}
+
+/* Sitewide styling */
+
+body {
+    height:100vh;
+    color: #545454;
+    font-family: 'Karla', sans-serif;
+}
+
+a {
+    color: #545454;
+}
+
+a:hover {
+    color: #CDCDCD;
+    text-decoration: none;
+}
+
+.small a {
+    color: #CDCDCD;
+}
+
+.small a:hover {
+    color: #545454;
+}
+
+/* Free shipping banner */
+
+#free-shipping-banner {
+    background-color: #fc7cbd;
+    color: white;
+    font-weight: 400;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*Navigation bar */
+nav {
+    background-color: #ffffff;
+    width: 100%;
+    font-size: large;
+}
+
+#navbar a {
+    color: #8ecbb5;
+    font-weight: 600;
+}
+
+#navbar a:hover {
+    color: #2caead;
+}
+
+
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.search-box input {		
+	border-color: #ffffff;        
+    box-shadow: none;
+}
+
+.navbar .search-dropdown .dropdown-toggle::after {
+	display: none;
+}
+
+.navbar .user-dropdown .dropdown-toggle::after {
+	display: none;
+}
+
+.navbar .search-dropdown .dropdown-menu {
+	width: 300px;
+	padding: 5px;
+	left: auto;
+	right: 0;
+}
+
+.navbar .user-dropdown .dropdown-menu {
+	width: 200px;
+    padding: 5px;
+    left:auto;
+	right: 0;
+	font-size: 16px;
+}
+
+
+/* Buttons */
+.btn-outline-light:hover {
+    color: #2caead;
+}
+
+.btn-outline-secondary {
+    color: #545454;
+}
+
+.btn-outline-secondary:hover {
+    color: white;
+    background-color: #CDCDCD;
+    border: none;
+}
+
+/* Products Page */
+
+#product-card {
+    background-color: #fc7cbd;
+}
+
+.card-text {
+    position: relative;
+}
+
+.card-title, #plus-button {
+    height: 70px;
+    width: 70px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 50%;
+    background: #fc7cbd;
+}
+
+/* Product Admin pages */
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+/* Code to create overlay adapted from W3schools */
+#plus-button {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
+
+#plus-text {
+    font-weight: 800;
+    color: white;
+}
+
+#plus-text:hover {
+    text-decoration: none;
+    color: white;
+}
+
+#plus-button:hover {
+    background-color: #CDCDCD;
+}
+
+#product-card:hover img {
+    opacity: 0.4;
+}
+
+#product-card:hover #plus-button {
+    opacity: 1;
+}
+
+/* Home Page */
+
+.bg-pink {
+    background-color: #fc7cbd;
+}
+
+.review-carousel {
+    height: 300px;
+    color: #ffffff;
+}
+
+
+.bg-pink img {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+/* Product Details Page */
+
+.quantity-input {
+    background-color: white;
+    max-width: 8em;
+    font-weight: 800;
+    text-align: center;
+}
+
+.quantity .plus, .quantity .minus {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: center;
+    color: #fc7cbd;
+    width: 30px;
+    height: 30px;
+    }
+
+.plus:hover,
+.minus:hover {
+    color: #CDCDCD;
+}
+
+.btn-link {
+    font-size: small;
+}
+
+/* Shopping Cart Page */
+
+.img-thumbnail {
+    border-radius: 50%;
+    width: 30%;
+}
+
+/* Alerts */
+
+.message-container {
+    z-index: 99999;
+    position: fixed;
+    top: 110px;
+    right: 15px;
+    width: 50%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 60%;
+}
+
+
+
