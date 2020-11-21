@@ -69,10 +69,10 @@
                       {% if forloop.counter <= 5 %}
                         <div class="carousel-item">
                           <div class="row mt-5">
-                            <div class="col-4">
+                            <div class="col-4 d-none d-sm-block">
                               <img src="{{ review.product.image.url }}" alt="{{ review.product }}">
                             </div>
-                            <div class="col-8 my-auto">
+                            <div class="col-12 col-sm-8 my-auto">
                                 <h4> {{ review.product }}</h4>
                                 <h5><i class="fas fa-star"></i> </strong> {{ review.rating }} / 5</h5>
                                 <p class="mx-5 mt-3">{{ review.content }}</p>
