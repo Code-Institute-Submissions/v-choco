@@ -65,7 +65,6 @@
                       <h4 class="mx-3 mb-3 mt-3">See what our customers have to say about our products!</h4>
                       <h5><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> </h5>
                     </div>
-                    {% if reviews %}
                     {% for review in reviews.all %}
                       {% if forloop.counter <= 5 %}
                         <div class="carousel-item">
@@ -82,7 +81,6 @@
                         </div>
                       {% endif %}
                     {% endfor %}
-                    {% endif %}
                   </div>
                   <a class="carousel-control-prev" href="#carouselReviewIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
