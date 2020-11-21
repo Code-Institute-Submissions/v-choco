@@ -15,6 +15,7 @@
             </div>
         </div>
         <div class="row">
+            <!-- Start of products in order -->
             <div class="col-10 col-md-6 order-last my-2">
                 {% for item in order.lineitems.all %}
                     <div class="row my-2">
@@ -53,6 +54,8 @@
                     </div>
                 </div>
             </div>
+            <!-- End of products in order -->
+            <!-- Start of Order Summary-->
             <div class="col-10 col-md-6 my-2 order-conf-box">
                 <p class="mt-2 mb-0"><strong>Order Number:</strong> {{ order.order_number }}</p>
                 <p class="my-0"><strong>Order Date:</strong> {{ order.date }}</p>
@@ -73,7 +76,9 @@
                 <p class="my-0">{{ order.country }}</p>
                 <p class="mb-2">{{ order.phone_number }}</p>
             </div>
+            <!-- End of Order Summary-->
         </div>
+        <!-- Start of Go to your account button -->
         {% if request.user.is_authenticated %}
             <div class="row mt-3">
                 <div class="col-12 col-lg-6 text-center">
@@ -85,5 +90,6 @@
                 </div>
             </div>
         {% endif %}
+        <!-- End of Go to your account button -->
     </div>
 {% endblock %}

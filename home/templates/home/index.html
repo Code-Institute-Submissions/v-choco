@@ -3,6 +3,7 @@
 {% block extra_title %}Home{% endblock %}
 {% block content %}
     <div class="container-fluid">
+      <!-- Start of Carousel with images -->
       <section id="homepage-carousel">
         <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -30,9 +31,11 @@
               <span class="sr-only">Next</span>
             </a>
           </div> 
-        </section>
-        <section>
-          <div class="row mt-2 mb-2">
+      </section>
+      <!-- End of Carousel with images -->
+      <!-- Start of two columns:infographic/newsletter/reviews -->
+      <section>
+        <div class="row mt-2 mb-2">
             <div class="col-10 col-md-6 mx-auto">
               <img src="{{ MEDIA_URL }}vegan-infographic.png" class="d-block w-100" alt="Vegan infographic">
             </div>
@@ -74,7 +77,7 @@
                             </div>
                             <div class="col-12 col-sm-8 my-auto">
                                 <h4> {{ review.product }}</h4>
-                                <h5><i class="fas fa-star"></i> </strong> {{ review.rating }} / 5</h5>
+                                <h5><i class="fas fa-star"></i> {{ review.rating }} / 5</h5>
                                 <p class="mx-5 mt-3">{{ review.content }}</p>
                             </div>
                           </div>
@@ -82,35 +85,38 @@
                       {% endif %}
                     {% endfor %}
                   </div>
-                  <a class="carousel-control-prev" href="#carouselReviewIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                  <a class="carousel-control-next" href="#carouselReviewIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                  </a>
-                </div>
+                <a class="carousel-control-prev" href="#carouselReviewIndicators" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselReviewIndicators" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
               </div>
             </div>
-        </section>
-        <section class="newsletter bg-light pb-5">    
-          <div class="row">
-            <div class="col-12 col-md-5 text-center my-auto">
-              <h2 class="mt-5">Subscribe to our Newsletter!</h2>
-              <hr class="d-md-none">
-            </div>
-            <div class="col-8 col-md-7 mt-md-5 mx-auto">
-              <h5 class="text-center">Sign up to be the first to hear about exclusive offers and our latest deals.</h5>
-              <form class="form-inline" action="{% url 'home' %}" method="POST">
-                {% csrf_token %}
-                <div class="form-group text-center mx-auto">
-                    {{ form|crispy }}
-                    <input type="submit" value="Subscribe" class="submit btn btn-outline-secondary">
-                </div>
-              </form>
-            </div>
+        </div>
+      </section>
+      <!-- End of two columns:infographic/newsletter/reviews -->
+      <!-- Start of newsletter signup -->
+      <section class="newsletter bg-light pb-5">    
+        <div class="row">
+          <div class="col-12 col-md-5 text-center my-auto">
+            <h2 class="mt-5">Subscribe to our Newsletter!</h2>
+            <hr class="d-md-none">
           </div>
-        </section>
+          <div class="col-8 col-md-7 mt-md-5 mx-auto">
+            <h5 class="text-center">Sign up to be the first to hear about exclusive offers and our latest deals.</h5>
+            <form class="form-inline" action="{% url 'home' %}" method="POST">
+              {% csrf_token %}
+              <div class="form-group text-center mx-auto">
+                  {{ form|crispy }}
+                  <input type="submit" value="Subscribe" class="submit btn btn-outline-secondary">
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+      <!-- End of newsletter signup -->
     </div>
 {% endblock %}

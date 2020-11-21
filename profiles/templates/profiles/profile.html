@@ -14,6 +14,7 @@
             </div>
         </div>
         <div class="row">
+            <!--- Start of Col 1: Default Shipping Details -->
             <div class="col-12 col-lg-6">
                 <p>Your current shipping address</p>
                 <form class="mt-2" action="{% url 'profile' %}" method="POST" id="profile-update-form">
@@ -22,6 +23,8 @@
                     <button class="btn btn-outline-secondary float-right">Update Address</button>
                 </form>
             </div>
+            <!-- End of Col 1: Default Shipping Details -->
+            <!-- Start of Col 2: Past Orders -->
             <div class="col-12 col-lg-6">
                 <p>Your Past Orders</p>
                 <div class="order-history table-responsive">
@@ -49,6 +52,7 @@
                     </table>
                 </div>
             </div>
+            <!-- End of Col 2: Past Orders -->
         </div>
     </div>
 {% endblock %}

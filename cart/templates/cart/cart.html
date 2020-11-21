@@ -11,6 +11,7 @@
         </div>
         <div class="row">
             <div class="col">
+            <!-- Start of Table -->
             {% if cart_items %}
                 <table class="table">
                     <thead>
@@ -22,6 +23,7 @@
                     </tr>
                     </thead>
                     <tbody>
+                        <!-- Start cart contents -->
                         {% for item in cart_items %}
                             <tr>
                                 <td colspan= "2">
@@ -53,7 +55,9 @@
                                 </td>
                             </tr>
                         {% endfor %}
+                        <!-- End of table with cart contents -->
                         <tr>
+                            <!--Start of Total price -->
                             <td colspan= "4" class="text-right">
                                 <p>Subtotal: ${{ total|floatformat:2 }}</p>
                                 <p>Shipping: ${{ shipping|floatformat:2 }}</p>
@@ -64,8 +68,10 @@
                                     </p>
                                 {% endif %}
                             </td>
+                            <!--End of Total price -->
                         </tr>
                         <tr>
+                            <!-- Start of Checkout button -->
                             <td colspan="4">
                                 <div class="float-left">
                                     <a class="btn btn-sm btn-outline-secondary" href="{% url 'products' %}"><i class="fas fa-arrow-circle-left"></i> Keep Shopping</a>
@@ -75,18 +81,21 @@
                                             Secure Checkout <i class="fas fa-lock"></i>
                                     </a>
                                 </div>
-                                
                             </td>
+                            <!-- End of Checkout button -->
                         </tr>
                     </tbody>
                 </table>
+                <!-- End of Table-->
             {% else %}
+            <!-- Start of button to go back to all products if cart is empty -->
                 <h4>Your cart is empty.</h4>
                 <p>
                     <a class="btn btn-sm btn-outline-secondary" href="{% url 'products' %}"
                     ><i class="fas fa-arrow-circle-left"></i> Start shopping</a
                     >
                 </p>
+            <!-- End of button -->
             {% endif %}
             </div>
         </div>

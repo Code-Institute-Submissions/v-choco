@@ -8,6 +8,9 @@ from products.models import ProductReview
 
 
 def index(request):
+    """
+    Renders homepage and Newsletter Sign Up forms
+    """
     form = NewsletterSignupForm()
     reviews = ProductReview.objects.all()
     if request.method == "POST":
