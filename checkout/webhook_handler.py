@@ -1,4 +1,4 @@
-from django.http import HttpResponse, request
+from django.http import HttpResponse
 from django.conf import settings
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
@@ -44,7 +44,7 @@ class StripeWH_Handler:
 
     def handle_payment_intent_succeeded(self, event):
         """
-        Handles payment_intent.succeeded webhook event
+        Handles the payment_intent.succeeded webhook
         """
         intent = event.data.object
         pid = intent.id
@@ -55,24 +55,23 @@ class StripeWH_Handler:
         shipping_details = intent.shipping
         grand_total = round(intent.charges.data[0].amount / 100, 2)
 
+        # Clean data in the shipping details
         for field, value in shipping_details.address.items():
             if value == "":
                 shipping_details.address[field] = None
-
         # Updates default shipping address if save_info was ticked
         profile = None
         username = intent.metadata.username
-        if request.user.is_authenticated:
-            profile = UserProfile.objects.get(user_username=username)
+        if username != 'AnonymousUser':
+            profile = UserProfile.objects.get(user__username=username)
             if save_info:
-                profile.default_full_name = shipping_details.name,
-                profile.default_phone_number = shipping_details.phone,
-                profile.default_country = shipping_details.address.country,
-                profile.default_postcode = shipping_details.address.postal_code,
-                profile.default_town_or_city = shipping_details.address.city,
-                profile.default_street_address1 = shipping_details.address.line1,
-                profile.default_street_address2 = shipping_details.address.line2,
-                profile.default_county = shipping_details.address.state,
+                profile.default_phone_number = shipping_details.phone
+                profile.default_country = shipping_details.address.country
+                profile.default_postcode = shipping_details.address.postal_code
+                profile.default_town_or_city = shipping_details.address.city
+                profile.default_street_address1 = shipping_details.address.line1
+                profile.default_street_address2 = shipping_details.address.line2
+                profile.default_county = shipping_details.address.state
                 profile.save()
 
         order_exists = False
