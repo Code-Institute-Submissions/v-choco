@@ -232,6 +232,22 @@ nav {
     width: 30%;
 }
 
+/* Order Confirmation Page */
+
+@media (max-width: 400px) {
+    .order-conf-box {
+        border-style:hidden;
+    }
+}
+
+@media (min-width: 401px) {
+    .order-conf-box {
+        border-color: #CDCDCD;
+        border-width: 1px;
+        border-style:solid;
+    }
+}
+
 /* Alerts */
 
 .message-container {
