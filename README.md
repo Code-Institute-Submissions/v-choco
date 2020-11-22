@@ -12,12 +12,12 @@ A live preview of the website can be found here: [V-Choco](https://vchoco.heroku
     * [Scope](#scope)
     * [Structure](#structure)
     * [Skeleton](#skeleton)
-1. Database Structure
-1. Features
-1. Technologies Used
-1. Testing
-1. Deployment
-1. Credits
+1. [Database Structure](#database-structure)
+1. [Features](#features)
+1. [Technologies Used](#technologies-used)
+1. [Testing](#testing)
+1. [Deployment](#deployment)
+1. [Credits](#credits)
 
 ## UX Design
 ### User Stories
@@ -178,3 +178,98 @@ Grand Total | grand_total | DecimalField | max_digits=10, decimal_places=2, null
 Original Cart | original_cart | TextField | null=False, blank=False, default=''
 Stripe ID | stripe_pid | CharField | max_length=254, null=False, blank=False, default=''
 
+[Back to Top](#table-of-contents)
+
+## Features
+### Existing Features
+#### Navigation Bar
+#### Landing Page
+#### Registration Form
+#### Sign In/Sign Out Form
+#### My Account Page
+#### Products and Product Details Pages
+#### Add a Product Page
+#### Edit a Product Page
+#### Shopping Cart
+#### Checkout Page
+#### Order Confirmation Page
+### Hopeful Future Features
+
+[Back to Top](#table-of-contents)
+
+## Technologies Used
+### Languages
+### Libraries/Frameworks
+### Tools
+### Databases
+
+[Back to Top](#table-of-contents)
+
+## Testing
+### Validation Testing
+### User Stories Testing
+### Manual Testing
+
+[Back to Top](#table-of-contents)
+
+## Deployment
+
+*V-Choco* has been built with the help of Visual Studio Code, a desktop code editor. It has been committed to Git and Pushed to GitHub using the terminal in Visual Studio Code. the website is hosted on Heroku.
+
+### Cloning
+**Clone the repository and run locally:**
+1. Navigate to the repository from the Github Dashboard
+1. Select the green button in the top right of the screen that says "Clone or download"
+1. Click on the clipboard icon to the right of the URL to copy it
+1. Open an Integrated Development Environment (IDE) and head over to the terminal
+1. Change the directory to where you want to clone the repository to
+1. Execute the following command by pasting in the URL you copied in step 3: git clone https://github.com/debrawolford/v-choco.git
+1. Press Enter
+1. The site will then be cloned
+1. Install all the project dependencies by typing pip install -r requirements.txt
+1. Set Up Environment Variables:
+1. Create an env.py file in your root directory.
+1. Add env.py file to the.gitignore file.
+1. Add the following to your env.py file with the applicable variables:
+
+### Deploying on Heroku
+1. Follow the steps above to clone your project.
+1. Go to your Dashboard in Heroku and select New -> Create New App.
+1. Give your app a name and select your region.
+1. Go to the Resources tab and search for Postgres, select it as a free add-on.
+1. Add the following Config Vars in the settings tab:
+1. Go to the Deploy tab and select GitHub as your Deployment method.
+1. Follow the instructions to connect to the correct Github repository.
+1. Enable Automatic Deploys. This will deploy the website each time the master branch is updated.
+1. If you prefer to deploy manually, head to the Manual Deployment section, choose the master branch, and select Deploy.
+Your website should now be live.
+
+### Sending Confirmation Email through Gmail
+To send the registration and order confirmation emails, you will need to set up a gmail account and enable two-step authentication in your security settings and set up an app password. Once you have these you will need to set the following in your Heroku config vars:
+
+KEY | VALUE
+--- | -----
+EMAIL_HOST_PASS | The Password you created in App Passwords
+EMAIL_HOST_USER | Your Gmail account (...@gmail.com)
+
+### Hosting your files on AWS
+The static and media files for this website are saved in an AWS S3 Bucket.In order to deploy this project, you will need to create an AWS account and then set up your AWS S3 Bucket, making sure you allow public access. Once you have done this, you will need to add the following to your Heroku config vars:
+
+KEY | VALUE
+--- | -----
+AWS_ACCESS_KEY_ID | Given to you while setting up your bucket
+AWS_SECRET_ACCESS_KEY | Given to you while setting up your bucket
+USE_AWS | True
+
+
+[Back to Top](#table-of-contents)
+
+## Credits
+### Content
+### Media
+
+[Back to Top](#table-of-contents)
+
+## Acknowledgements
+
+[Back to Top](#table-of-contents)
