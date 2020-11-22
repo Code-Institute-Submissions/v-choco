@@ -38,6 +38,7 @@ Sort products by categories | easily select the product I want to purchase
 
 **Site Admin**
 I want to... | So that I can ...
+------------ | -----------------
 Add new products | sell them on the website
 Edit product details | keep the website up-to-date
 Delete products | remove items from the website that are not in stock
