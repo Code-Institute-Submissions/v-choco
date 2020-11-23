@@ -229,6 +229,7 @@ Stripe ID | stripe_pid | CharField | max_length=254, null=False, blank=False, de
 1. Install all the project dependencies by typing pip install -r requirements.txt
 1. Create an env.py file in your root directory.
 1. Add these environment variables to your env.py:
+
 KEY | VALUE
 --- | -----
 DATABASE_URL | Your database url
@@ -245,6 +246,7 @@ STRIPE_WH_SECRET | Obtained from Stripe
 1. Give your app a name and select your region.
 1. Go to the Resources tab and search for Postgres, select it as a free add-on.
 1. Add the following Config Vars in the settings tab:
+
 KEY | VALUE
 --- | -----
 DATABASE_URL | Your Postgres Database URL
