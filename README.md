@@ -202,29 +202,82 @@ The navbar stays the same on all pages, making navigating the website straightfo
 
 There is a banner above the navbar that lets the user know whether they have qualified for free shipping. If they haven't, it will show how much more they need to spend.  
 
-If the user is not authenticated, they will see links to the Home, All Products, Seasonal Seasonal Selection, Sign Up, Sign In, and shopping cart pages. 
+If the user is not authenticated, they will see links to the Home, All Products, Seasonal Selection, Sign Up, Sign In, and Shopping Cart pages. 
 
-If the user is authenticated but not a superuser, they will see links to the Home, All Products, Seasonal Seasonal Selection, My Account, Sign Out, and shopping cart pages. If the user is a superuser, they will see all the same options plus a link to Add Product, which will allow them to add a product.
+If the user is authenticated but not a superuser, they will see links to the Home, All Products, Seasonal Selection, My Account, Sign Out, and Shopping Cart pages. If the user is a superuser, they will see all the same options plus a link to Add Product, which will allow them to add a product.
 
 There is also a search icon that allows users to search for specific keywords.
 
 When hovering over the links their color will change to a darker color in order to give feedback to the user.
-#### Landing Page
-#### Registration Form
-#### Sign In/Sign Out Form
+#### Home Page
+The landing page of the website. At the top of the page is a carousel with different images that link to the different products pages. This carousel is meant to be updated with new deals or products as the time goes on.
+
+Below the carousel is an infographic explaining why people should choose for plant-based chocolate. Next to the infographic are a reviews carousel which shows the latest feedback given by customers, and a form that allows users to sign up to the newsletter. If a new user signs up to the newsletter a message will pop up letting them know they have been subscribed. If a person tries to subscribe twice an error message will appear.
+
+At the bottom of the page is another newsletter signup form that does the same as the one next to the infographic.
+#### Sign Up Form
+This allows new visitors to create an account. If an account with the entered email or username already exists, the user will get an error message asking to try again.
+
+In case users already have an account and want to sign in instead, there are links at the top and bottom of the form that will take them to the Sign In page.
+
+#### Sign In Form
+This form allows existing users to sign in using their username and password. An error message will appear if an invalid username/password is entered.
+
+There is an option at the top of the form to go to the sign up page if they don't have an account yet. 
+
+At the bottom of the form is a tick box to "remember me" for the future, and a "forgot password" link. 
 #### My Account Page
-#### Products and Product Details Pages
+This page is only available to authenticated users. It shows the default shipping address if they have saved it in the past, and the ability to edit/update this address. It also shows any past orders if the user has made any and if the user clicks on the order number it will take them to the complete order summary..
+#### Products Pages
+There are three different products pages. One that shows all the products, one that shows the seasonal items, and one that shows all the bonbons. 
+
+When on the All Products page, there are two buttons on the top of the page that allow users to go to specific categories. When viewing one of the categories, there is a button at the top which can take them back to the All Products page.
+
+In the top left corner it shows how many products are on the page.
+
+Each product listed has an image, a price, a title and reviews if applicable.
+
+If a user uses the search bar at the top of the page they will be redirected to the products page with any relevant search results.
+
+To see more details of a product, the user will need to hover over the image and click on the plus.
+
+If the user is a superuser, there will be the options to edit and delete the product right underneath each product card.
+
+#### Product Detail Page
+This page has all the product information on it for users to view before choosing whether or not to purchase the product. These include the product image, name, price, rating and description.
+
+The user has the ability to add the specified amount to their cart by first selecting the amount they want in the quantity input field and then pressing the add to cart button. When they press this a message will pop up confirming that the product has been added to the cart, and will show a summary of their cart with the option to either view their cart or go to the checkout page.
+
+If the user is a superuser, there will be the options to edit and delete the product right underneath the Add to Cart button.
+
+At the bottom of the page is the reviews section. If the product has any reviews they will appear here. If the user is authenticated they will be able to add a review to the page as well. If not, they will have the option to sign in. 
 #### Add a Product Page
+A page only available to superusers. It has a simple layout with only a form including the following input fields: Category, SKU, Name*, Description*, Price*, Image url, Image*. Filling this form out will add a new product to the database and website.
 #### Edit a Product Page
+Similar to the Add a Product page. Only difference is that the current values of each input field are filled in by default. 
 #### Shopping Cart
+The page to view all the items that have been added to the shopping cart. If the shopping cart is empty it will say "Your cart is empty" with a button to "Start Shopping". 
+
+If there are items in the cart, there will be a table showing a summary of all the products, the amount in the cart, and the price of each. There is also the ability to update the quantity of each item or remove them completely from the cart. If anything is updated, the page will be reloaded and a success message will appear letting the user know that their cart has been updated. 
+
+At the bottom of the page are the subtotal, the shipping costs and the grand total. There is also a sentence letting the user know if they don't qualify for free shipping and how much more they need to spend to qualify. Below that there are two buttons, one to keep shopping and one to go to the checkout page.
 #### Checkout Page
+This page includes an order summary table and a form. The order summary table is very similar to the Shopping Cart page, but without the options to edit/remove any products. The form includes input fields for contact information, a shipping address, and payment details.
+
+If the user is not authenticated it will give the user the option to sign in or create an account to save the details for future orders. If the user is authenticated they will simply be able to select the box at the bottom of the page to save the information. 
+
+Once the submit order button is pressed, it will be disabled and replaced with a loading button while the payment processes. As soon as it has been processed the user will be sent a confirmation email and taken to the order confirmation page.
 #### Order Confirmation Page
+This page once again shows a summary of the order and lets the user know that their order has been successful and that they will receive a confirmation email. 
+
+If the user is authenticated they will have an option to go to their account.
 ### Hopeful Future Features
 * The ability to log in using social media
 * More payment options (Paypal etc.)
 * The ability to "delete your account" and "unsubscribe from the newsletter" on the My Account page
 * A Contact Us page
 * The option for users to "create their own box" and choose which bonbons they specifically want.
+* A pop-up to confirm whether the superused wants to delete a product when pressing the Delete option on the Products/Product Details pages.
 
 [Back to Top](#table-of-contents)
 
@@ -358,8 +411,8 @@ All the images on this website were created using [Canva](https://www.canva.com/
 
 ## Acknowledgements
 
-Thanks to my mentor, Dick Vlaanderen for providing helpfulfeedback throughout the project.
+Thanks to my mentor, Dick Vlaanderen for providing helpful feedback throughout the project.
 
-Thanks to the Slack community for helping me resolve some errors while deploying.
+Thanks to the Slack community for helping me resolve some errors while deploying to Heroku.
 
 [Back to Top](#table-of-contents)
