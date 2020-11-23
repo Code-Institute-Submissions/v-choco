@@ -1,8 +1,22 @@
 ![V-Choco](media/v-choco-logo-readme.png)
 # *V-Choco* - Fourth Milestone Project for Code Institute
-*V-Choco* is a webshop that offers dairy-free chocolate for people who are either allergic to dairy or choose to avoid it.
+*V-Choco* is a webshop that offers dairy-free chocolate for people who are either allergic to dairy or choose to avoid it. It was created using all of the knowledge gained during the Full Stack Web Development Course. 
 
 A live preview of the website can be found here: [V-Choco](https://vchoco.herokuapp.com/)
+
+To test the payment functionality on the website page, use the following details:
+
+Address: Any address
+Card number: 4242 4242 4242 4242
+CVC: Any 3 digit digits
+Postcode: Any 5 digits
+Expiration Date: Any date in the future
+
+To test the site as an admin, use the following login:
+
+user: testtest
+password: vchocotest
+
 
 ## Table of Contents
 
@@ -184,6 +198,17 @@ Stripe ID | stripe_pid | CharField | max_length=254, null=False, blank=False, de
 ## Features
 ### Existing Features
 #### Navigation Bar
+The navbar stays the same on all pages, making navigating the website straightforward. It collapses to the popular hamburger icon on smaller devices in order to save screen space.
+
+There is a banner above the navbar that lets the user know whether they have qualified for free shipping. If they haven't, it will show how much more they need to spend.  
+
+If the user is not authenticated, they will see links to the Home, All Products, Seasonal Seasonal Selection, Sign Up, Sign In, and shopping cart pages. 
+
+If the user is authenticated but not a superuser, they will see links to the Home, All Products, Seasonal Seasonal Selection, My Account, Sign Out, and shopping cart pages. If the user is a superuser, they will see all the same options plus a link to Add Product, which will allow them to add a product.
+
+There is also a search icon that allows users to search for specific keywords.
+
+When hovering over the links their color will change to a darker color in order to give feedback to the user.
 #### Landing Page
 #### Registration Form
 #### Sign In/Sign Out Form
@@ -195,6 +220,11 @@ Stripe ID | stripe_pid | CharField | max_length=254, null=False, blank=False, de
 #### Checkout Page
 #### Order Confirmation Page
 ### Hopeful Future Features
+* The ability to log in using social media
+* More payment options (Paypal etc.)
+* The ability to "delete your account" and "unsubscribe from the newsletter" on the My Account page
+* A Contact Us page
+* The option for users to "create their own box" and choose which bonbons they specifically want.
 
 [Back to Top](#table-of-contents)
 
