@@ -12,12 +12,6 @@ CVC: Any 3 digit digits\
 Postcode: Any 5 digits\
 Expiration Date: Any future date
 
-To test the site as an admin, use the following login:
-
-user: testtest
-password: vchocotest
-
-
 ## Table of Contents
 
 1. [UX Design](#ux-design)
@@ -317,6 +311,7 @@ If the user is authenticated they will have an option to go to their account.
 * A Contact Us page
 * The option for users to "create their own box" and choose which bonbons they specifically want
 * A pop-up to confirm whether the superused wants to delete a product when pressing the Delete option on the Products/Product Details pages
+* The ability to manage stock and remove items from the website if they are out of stock
 
 [Back to Top](#table-of-contents)
 
