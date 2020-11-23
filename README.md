@@ -50,6 +50,7 @@ Receive email confirmations | confirm that I have been registered or that my ord
 See my order history | reorder products I liked in the past
 Post reviews on products I have purchased | share my opinion with others
 Sort products by categories | easily select the product I want to purchase
+Subscribe to the newsletter | hear about the latest deals:
 
 **Site Admin**
 I want to... | So that I can ...
@@ -336,6 +337,105 @@ The website has been tested on Google Chrome, and Safari for mobile and web.
 * Python: Flake8 was used to validate. There were initially a lot of errors about lines being too long so those were fixed. There is only one line that I wasn't able to shorten without breaking the code.
 
 ### User Stories Testing
+
+**Site User**
+
+* I want to view all products
+    * Head to the home page of the website
+    * Select All Products on the navigation bar
+
+* I want to view product details
+    * Head to the home page of the website
+    * Select All Products on the navigation bar, or search for a specific product/category
+    * Click on a product image
+
+* I want to view my shopping cart total at any time
+    * If the shopping cart total isn't 0 it will appear next to the cart icon on the navbar
+    * This can be tested by adding any product to the cart
+
+* I want to check out securely
+    * Head to the products page and add a product to the cart
+    * View cart and select Secure Checkout
+    * Fill in shipping details and payment details (powered by stripe)
+    * Submit order and receive a confirmation email
+
+* I want to register for an account
+    * Head to the home page
+    * On the navigation bar, click on the user icon and select sign up
+    * Fill in the form correctly and press the sign up button
+    * Get redirected to a page saying a confirmation email has been sent
+    * Check email and click on the confirmation link in the email
+
+* I want to log in and log out
+    * Head to the home page
+    * Select the user icon on the navigation bar
+    * Select Sign In
+    * Fill in username and password
+    * Get redirected to the home page with a message saying that the sign in was successful
+    * To sign out, select the same user icon as before
+    * Select the Sign Out option
+    * Get redirected to a confirmation page and select Sign Out again
+
+* I want to reset my password if I lost it
+    * Head to the home page
+    * Select the user icon
+    * Select sign in 
+    * Select the Forgot Password option
+    * Fill in email address
+    * Select Reset My Password
+    * Follow the instructions in the email
+
+* I want to receive email confirmations
+    * When an order has been confirmed or a new account has been created the user will receive email confirmations
+
+* I want to see my order history
+    * Head to the home page
+    * If not already signed in, select the user icon and sign in
+    * If signed in, select the user icon
+    * Select Account Details
+    * Order history will appear on the right on larger screens
+
+* I want to post reviews on products that I have purchased
+    * Head to the product details page of the product
+    * Scroll to the reviews section
+    * If not already signed in, press the option to sign in first
+    * If signed in, fill out the review form and select Add Review 
+
+* I want to sort products by categories
+    * Head the products page
+    * Underneath the title All Products, there are two buttons - one for each category
+    * Press either button and get redirected to a page with all the products in that category
+
+* I want to subscribe to a newsletter to hear about the latest deals:
+    * Head to the homepage of the website
+    * Scroll to the very bottom
+    * In the newsletter signup form, enter an email and select the subscribe button
+    * Page refreshes with a success message saying the user has been registered
+
+
+**Site Admin**
+
+* I want to add new products
+    * Head to the home page
+    * Select the user icon and sign in
+    * Sign in as a superuser and get redirected to the home page
+    * Select the user icon again and select Add Product
+    * Fill in all the required fields and select the Add Product button
+
+* I want to edit product details
+    * Head to the products page
+    * Click on the edit option below the product
+    * Change the details that need to be updated in the edit form
+    * Select the Update button
+
+* I want to delete a product
+    * Head to the products page
+    * Click on the delete option below the product
+
+* I want to view a list of email subscribers
+    * Head to the admin of the site: https://vchoco.herokuapp.com/admin/
+    * Click on Newsletter Signups under Marketing
+
 ### Manual Testing
 
 ✔️ Navigation links when not logged in/logged in/logged in as superuser: All redirect to the correct pages
