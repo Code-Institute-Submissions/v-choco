@@ -6,20 +6,15 @@ A live preview of the website can be found here: [V-Choco](https://vchoco.heroku
 
 To test the payment functionality on the website page, use the following details:
 
-Address: Any address
-
-Card number: 4242 4242 4242 4242
-
-CVC: Any 3 digit digits
-
-Postcode: Any 5 digits
-
+Address: Any address\
+Card number: 4242 4242 4242 4242\
+CVC: Any 3 digit digits\
+Postcode: Any 5 digits\
 Expiration Date: Any date in the future
 
 To test the site as an admin, use the following login:
 
-user: testtest
-
+user: testtest\
 password: vchocotest
 
 
