@@ -227,8 +227,15 @@ Stripe ID | stripe_pid | CharField | max_length=254, null=False, blank=False, de
 1. Press Enter
 1. The site will then be cloned
 1. Install all the project dependencies by typing pip install -r requirements.txt
-1. Set Up Environment Variables:
 1. Create an env.py file in your root directory.
+1. Add these environment variables to your env.py:
+KEY | VALUE
+--- | -----
+DATABASE_URL | Your database url
+SECRET_KEY | Your secret key that you used for your Django project
+STRIPE_PUBLIC_KEY | Obtained from Stripe
+STRIPE_SECRET_KEY | Obtained from Stripe
+STRIPE_WH_SECRET | Obtained from Stripe
 1. Add env.py file to the.gitignore file.
 1. Add the following to your env.py file with the applicable variables:
 
@@ -238,6 +245,14 @@ Stripe ID | stripe_pid | CharField | max_length=254, null=False, blank=False, de
 1. Give your app a name and select your region.
 1. Go to the Resources tab and search for Postgres, select it as a free add-on.
 1. Add the following Config Vars in the settings tab:
+KEY | VALUE
+--- | -----
+DATABASE_URL | Your Postgres Database URL
+SECRET_KEY | Your secret key that you used for your Django project
+STRIPE_PUBLIC_KEY | Obtained from Stripe
+STRIPE_SECRET_KEY | Obtained from Stripe
+STRIPE_WH_SECRET | Obtained from Stripe
+
 1. Go to the Deploy tab and select GitHub as your Deployment method.
 1. Follow the instructions to connect to the correct Github repository.
 1. Enable Automatic Deploys. This will deploy the website each time the master branch is updated.
@@ -249,11 +264,11 @@ To send the registration and order confirmation emails, you will need to set up 
 
 KEY | VALUE
 --- | -----
-EMAIL_HOST_PASS | The Password you created in App Passwords
+EMAIL_HOST_PASS | The password you created in App Passwords
 EMAIL_HOST_USER | Your Gmail account (...@gmail.com)
 
 ### Hosting your files on AWS
-The static and media files for this website are saved in an AWS S3 Bucket.In order to deploy this project, you will need to create an AWS account and then set up your AWS S3 Bucket, making sure you allow public access. Once you have done this, you will need to add the following to your Heroku config vars:
+The static and media files for this website are saved in an AWS S3 Bucket. In order to deploy this project, you will need to create an AWS account and then set up your AWS S3 Bucket, making sure you allow public access. Once you have done this, you will need to add the following to your Heroku config vars:
 
 KEY | VALUE
 --- | -----
