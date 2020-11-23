@@ -322,9 +322,89 @@ If the user is authenticated they will have an option to go to their account.
 [Back to Top](#table-of-contents)
 
 ## Testing
+
+Chrome Developer Tools was used the entirety of my project to test out how the website rendered on different viewports/devices. By using the device selector I went through each screen size to confirm that everything looked correct each time I changed anything.
+
+The website has been tested on Google Chrome, and Safari for mobile and web. 
+
+[Am I Responsive]() was used throughout the process to ensure that the website rendered well on different screen sizes.
+
 ### Validation Testing
+
+* HTML: W3C Markup Validation Service was used to validate. There were many errors due the program not accepting Jinja.
+* CSS: W3C CSS Validation Service was used to validate. No errors were found.
+* Python: Flake8 was used to validate. There were initially a lot of errors about lines being too long so those were fixed. There is only one line that I wasn't able to shorten without breaking the code.
+
 ### User Stories Testing
 ### Manual Testing
+
+✔️ Navigation links when not logged in/logged in/logged in as superuser: All redirect to the correct pages
+
+✔️ Misc. links on website: All links are working correctly and not throwing any errors.
+
+✔️ Try loading My Account page when not logged in: Get redirected to sign in page.
+
+✔️ Try loading Add Product page when not logged in: Get redirected to sign in page.
+
+✔️ Submit registration form with a user/email that already exists in database: An error message appears.
+
+✔️ Submit registration form with one of the fields not filled in: An error message appears asking user to fill in the field.
+
+✔️ Submit registration form with a new user/email that doesn't exist in database: Successfully sends user data to Django and sends a confirmation email.
+
+✔️ Click on the confirm registration link in email: Get sent to a page asking to confirm the account. Once confirmed the sign in page appears.
+
+✔️ Submit Log In form if no username exists in database that matches entered username: Error message appears and asks user to try again.
+
+✔️ Submit Log In form if username is correct but password doesn't match: Error message appears and asks user to try again.
+
+✔️ Submit Log In form with one of the fields not filled in: An error message appears asking user to fill in the field.
+
+✔️ Submit Log In form with correct username and password: Starts session and takes user to Home Page with a success message appearing.
+
+✔️ Press the Sign Out button when logged in: Takes user to confirmation sign out page. Once confirmed it ends the session and sends user back to the home page
+
+✔️ Try adding a product when logged in as superuser: Successfully creates a product and redirects user to the product page only if all the fields are filled in correctly. If not, an error message appears.
+
+✔️ Try editing a product on the products page when logged in as superuser: Successfully updates product and redirects user to the product page only if all the fields are filled in correctly. If not, an error message appears.
+
+✔️ Try deleting a post while on the products page: Product immediately gets deleted from database
+
+✔️ Try navigating to Log In page when already logged in: Get redirected to Home page.
+
+✔️ Try navigating to Register page when already logged in: Get redirected to Home page.
+
+✔️ Select different categories buttons on products page: Get redirected to a page showing only the products in that category with a buttom at the top to view all products.
+
+✔️ Try searching for a term that doesn't exist in products: Receive 0 results and a button to go back to all products.
+
+✔️ Try searching for a term that does exist (ie bonbon): Get redirected to a page with all products that have that term in their title or description.
+
+✔️ Try going to the shopping cart with no products added: Page says that there are no products in shopping cart and includes a button to start shopping.
+
+✔️ Try going to the checkout page with an empty cart: Get an error message saying the cart is empty.
+
+✔️ Try adding a product to the cart by going to the product details page and selecting the add to cart button: Get a message showing cart summary and that the product has been added. 
+
+✔️ Try removing an item from the cart in the message that pops up when adding an item: Get a message saying the product has been removed from the cart.
+
+✔️ Try removing an item from the cart on the shopping cart page: Get a message saying the product has been removed from the cart. 
+
+✔️ Try updating the total quantity  of the items in the cart: Get a message saying the product has been updated and the total/grand total is updated at the bottom as well.
+
+✔️ Try submitting an order using the Stripe test details: Successful only if all the fields are filled in properly, otherwise an error appears. Get redirected to an order confirmation page and have the email forwarded. 
+
+✔️ Try closing the checkout page while the order is being processed: Still receive a confirmation email as the webhook handled the order successfully.
+
+✔️ Select "Save this information for next time" on checkout page while signed in: Head to the My Account page after successfully completing the order and the address has been saved.
+
+✔️ Try editing the default shipping information on the My Account Page: Successfully updates the information
+
+✔️ Try making another order after having the default information saved: The form on the checkout page is filled out with the default address.
+
+✔️ Try subscribing to the newsletter on the homepage with a new email: Get a success message that the user has been subscribed.
+
+✔️ Try subscribing to the newsletter on the homepage with a email that has already been subscribed in the past: Get an error message letting the user know that they are already subscribed.
 
 [Back to Top](#table-of-contents)
 
