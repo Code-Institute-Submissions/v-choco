@@ -32,7 +32,7 @@ password: vchocotest
 1. [Testing](#testing)
 1. [Deployment](#deployment)
 1. [Credits](#credits)
-1. [Acknowledgements]#acknowledgements
+1. [Acknowledgements](#acknowledgements)
 
 ## UX Design
 ### User Stories
@@ -276,8 +276,8 @@ If the user is authenticated they will have an option to go to their account.
 * More payment options (Paypal etc.)
 * The ability to "delete your account" and "unsubscribe from the newsletter" on the My Account page
 * A Contact Us page
-* The option for users to "create their own box" and choose which bonbons they specifically want.
-* A pop-up to confirm whether the superused wants to delete a product when pressing the Delete option on the Products/Product Details pages.
+* The option for users to "create their own box" and choose which bonbons they specifically want
+* A pop-up to confirm whether the superused wants to delete a product when pressing the Delete option on the Products/Product Details pages
 
 [Back to Top](#table-of-contents)
 
