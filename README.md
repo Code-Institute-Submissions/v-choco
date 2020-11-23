@@ -18,6 +18,7 @@ A live preview of the website can be found here: [V-Choco](https://vchoco.heroku
 1. [Testing](#testing)
 1. [Deployment](#deployment)
 1. [Credits](#credits)
+1. [Acknowledgements]#acknowledgements
 
 ## UX Design
 ### User Stories
@@ -199,9 +200,41 @@ Stripe ID | stripe_pid | CharField | max_length=254, null=False, blank=False, de
 
 ## Technologies Used
 ### Languages
+* [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [Javascript](https://www.javascript.com/)
+* [Python](https://www.python.org/)
+* [Jinja2](https://jinja.palletsprojects.com/en/2.10.x/)
+
 ### Libraries/Frameworks
+* [Django](https://www.djangoproject.com/) : Main web framework used.
+* [Bootstrap](https://www.getbootstrap.com/) : Used for initial styling and in order to create a uniform website that renders well on all screen sizes. Also used for some basic Javascript additions.
+* [Jquery](https://jquery.com/) : Used in a lot of the bootstrap styling and additional Javascript on the website.
+* [Google Fonts](https://fonts.google.com/) : Used for the font on the website.
+* [Font Awesome](https://fontawesome.com/) : Used for social media icons.
+
 ### Tools
+* [Visual Studio Code](https://code.visualstudio.com/) : The code editor used for this project.
+* [Git](https://git-scm.com/) : Installed on VS Code to allow version control.
+* [Balsamiq Mockups](https://balsamiq.com/) : Used to create the wireframes during the UX Design process.
+* Chrome Developer Tools: Used to test the website while developing.
+* [W3C Markup Validation Jigsaw](https://jigsaw.w3.org/css-validator/) : To validate the CSS code.
+* [W3C Markup Validation](https://validator.w3.org/) : To validate the HTML code.
+* Github : Used to host the repositories for this project.
+* [Canva](https://www.canva.com/) : Used to resize images and create logo.
+* [Heroku](https://heroku.com/) : Used to host the website.
+* [AllAuth](https://django-allauth.readthedocs.io/en/latest/installation.html): Used for user registration and authentication. 
+* [Crispy-Forms](https://django-crispy-forms.readthedocs.io/en/latest/) : Used to build the forms on the website
+* [Gunicorn](https://gunicorn.org/) : A Python WSGI HTTP server required for deploying to Heroku
+* [Boto3](https://pypi.org/project/boto3/) : Required to set up and manage AWS services, like S3.
+* [Psycopg2](https://pypi.org/project/psycopg2-binary/) : Needed for the Postgres database
+* [Pillow](https://pillow.readthedocs.io/en/stable/) : Required for images with Python interpreter 
+* [AWS S3 Bucket](https://aws.amazon.com/s3/) : Used to store the media and static files
+* [Stripe](https://stripe.com/) : Used to process payments and webhooks on the checkout page
+
 ### Databases
+* [SQlite3](https://www.sqlite.org/index.html) - The database used when in development
+* [PostgreSQL](https://www.postgresql.org/) - The database used when deployed to Heroku
 
 [Back to Top](#table-of-contents)
 
@@ -228,7 +261,8 @@ Stripe ID | stripe_pid | CharField | max_length=254, null=False, blank=False, de
 1. The site will then be cloned
 1. Install all the project dependencies by typing pip install -r requirements.txt
 1. Create an env.py file in your root directory.
-1. Add these environment variables to your env.py:
+1. Add env.py file to the.gitignore file.
+1. Add the following to your env.py file with the applicable variables:
 
 KEY | VALUE
 --- | -----
@@ -237,8 +271,6 @@ SECRET_KEY | Your secret key that you used for your Django project
 STRIPE_PUBLIC_KEY | Obtained from Stripe
 STRIPE_SECRET_KEY | Obtained from Stripe
 STRIPE_WH_SECRET | Obtained from Stripe
-1. Add env.py file to the.gitignore file.
-1. Add the following to your env.py file with the applicable variables:
 
 ### Deploying on Heroku
 1. Follow the steps above to clone your project.
@@ -249,7 +281,7 @@ STRIPE_WH_SECRET | Obtained from Stripe
 
 KEY | VALUE
 --- | -----
-DATABASE_URL | Your Postgres Database URL
+DATABASE_URL | Your Postgres database url
 SECRET_KEY | Your secret key that you used for your Django project
 STRIPE_PUBLIC_KEY | Obtained from Stripe
 STRIPE_SECRET_KEY | Obtained from Stripe
@@ -283,10 +315,21 @@ USE_AWS | True
 
 ## Credits
 ### Content
+
+I initially followed along with the Boutique Ado mini project from Code Institute to create the first few models of my site.
+
+I roughly followed the tutorial by [Yuksel CELIK, PhD](https://www.youtube.com/watch?v=OvTs8BMLb7o) for setting up the product reviews models. It was later adapted to suit my project.
+
 ### Media
+
+All the images on this website were created using [Canva](https://www.canva.com/), a website that lets you create content with a library of stock images.
 
 [Back to Top](#table-of-contents)
 
 ## Acknowledgements
+
+Thanks to my mentor, Dick Vlaanderen for providing helpfulfeedback throughout the project.
+
+Thanks to the Slack community for helping me resolve some errors while deploying.
 
 [Back to Top](#table-of-contents)
