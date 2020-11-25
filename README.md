@@ -101,6 +101,8 @@ Color Scheme: The background of the website and navigation bar are both white. T
 
 [Click here](static/wireframes) to see all wireframes for this project.
 
+The pages that are the same layout on all screen sizes only have wireframes in the large format.
+
 *Please note that the wireframes show the initial design ideas for the website and therefore may not match the current version.*
 
 [Back to Top](#table-of-contents)
@@ -573,9 +575,9 @@ Chrome Developer Tools was used the entirety of my project to test out how the w
 
 ### Bugs Found
 
-* When deploying to Heroku the website wouldn't load and kept showing an error message saying SuspiciousOperation. It loaded properly after moving the images out of the static folder and into the media folder, changing the `src` attribute to each image to `src="{{ MEDIA_URL }}filename.png` and adding `'django.template.context_processors.media'` to settings.py the page loaded successfully.
+* When deploying to Heroku the website would not load and kept showing an error message saying SuspiciousOperation. It loaded properly after moving the images out of the static folder and into the media folder, changing the `src` attribute to each image to `src="{{ MEDIA_URL }}filename.png` and adding `'django.template.context_processors.media'` to settings.py the page loaded successfully.
 
-* Stripe webhooks weren't functioning completely in that the payment_intent.succeeded kept failing. Had to change line 66 in webhook_handler.py from `user_username=username` to `user__username=username` for it work.
+* Stripe webhooks was not functioning completely in that the payment_intent.succeeded kept failing. Had to change line 66 in webhook_handler.py from `user_username=username` to `user__username=username` for it to work.
 
 * The reviews carousel looked strange on screen sizes smaller than 350px in that the product image would overlap with the text. To fix this the image was set to `d-none` on smaller screen sizes.
 
