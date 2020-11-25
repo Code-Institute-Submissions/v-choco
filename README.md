@@ -368,7 +368,7 @@ Chrome Developer Tools was used the entirety of my project to test out how the w
 
 [Am I Responsive]() was used throughout the process to ensure that the website rendered well on different screen sizes.
 
-**The swebite has been tested on the following devices**
+**The webite has been tested on the following devices**
 * iPhone 7
 * iPhone 8 Plus
 * iPhone X
