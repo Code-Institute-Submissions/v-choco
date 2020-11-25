@@ -666,7 +666,34 @@ I roughly followed the tutorial by [Yuksel CELIK, PhD](https://www.youtube.com/w
 
 ### Media
 
-All the images on this website were created using [Canva](https://www.canva.com/), a website that lets you create content with a library of stock images.
+All the images on this website were created using [Canva Pro](https://www.canva.com/), a website that lets you create content with a library of stock images:
+
+The bonbon images around the newsletter box on the homepage: 
+Seramo from Getty Images Pro
+
+The box of six bonbons on the homepage carousel:
+Image Professionals GmbH
+
+The blocks of chocolate on the homepage carousel: 
+DAPA Images
+
+Christmas Bonbons image:
+A75 from Getty Images
+
+The present image on the homepage carousel:
+iprogressman from Getty Images Pro
+
+Box of 2, 4, 12 bonbon images in products:
+[dghchocolatier](https://pixabay.com/users/dghchocolatier-5671698/)
+
+Box of 16 bonbons in products: 
+[Monique Carrati](https://unsplash.com/photos/ONn4OfAnxZY)
+
+Advent Calendar in products:
+[Markus Spiske](https://unsplash.com/photos/MxjnYEqAfVA)
+
+Hot Cocoa Bar in products: 
+[American Heritage Chocolate](https://unsplash.com/photos/-w-zLYI-KfA)
 
 [Back to Top](#table-of-contents)
 
