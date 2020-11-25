@@ -12,6 +12,8 @@ CVC: Any 3 digit digits\
 Postcode: Any 5 digits\
 Expiration Date: Any future date
 
+Please email me at debra.wolford@gmail.com for admin login credentials. 
+
 ## Table of Contents
 
 1. [UX Design](#ux-design)
@@ -311,7 +313,7 @@ If the user is authenticated they will have an option to go to their account.
 * A Contact Us page
 * The option for users to "create their own box" and choose which bonbons they specifically want
 * A pop-up to confirm whether the superused wants to delete a product when pressing the Delete option on the Products/Product Details pages
-* The ability to manage stock and remove items from the website if they are out of stock
+* The ability to manage stock and remove items from the website if they are out of stock. This was not deemed as crucial to the website as most the products will be made fresh when ordered.
 
 [Back to Top](#table-of-contents)
 
@@ -364,9 +366,21 @@ If the user is authenticated they will have an option to go to their account.
 
 Chrome Developer Tools was used the entirety of my project to test out how the website rendered on different viewports/devices. By using the device selector I went through each screen size to confirm that everything looked correct each time I changed anything.
 
-The website has been tested on Google Chrome, and Safari for mobile and web. 
-
 [Am I Responsive]() was used throughout the process to ensure that the website rendered well on different screen sizes.
+
+**The swebite has been tested on the following devices**
+* iPhone 7
+* iPhone 8 Plus
+* iPhone X
+* iPad
+* Windows Desktop
+* Macbook Pro
+
+**The website has been tested in the following browsers on both mobile and desktop**
+* Google Chrome
+* Safari
+* Microsoft Edge
+
 
 ### Validation Testing
 
@@ -381,21 +395,25 @@ The website has been tested on Google Chrome, and Safari for mobile and web.
 * I want to view all products
     * Head to the home page of the website
     * Select All Products on the navigation bar
+![User Testing](media/vchoco-testing-1.png)
 
 * I want to view product details
     * Head to the home page of the website
     * Select All Products on the navigation bar, or search for a specific product/category
     * Click on a product image
+![User Testing](media/vchoco-testing-2.png)
 
 * I want to view my shopping cart total at any time
     * If the shopping cart total isn't 0 it will appear next to the cart icon on the navbar
     * This can be tested by adding any product to the cart
+![User Testing](media/vchoco-testing-3.png)
 
 * I want to check out securely
-    * Head to the products page and add a product to the cart
+    * Head to the product details page and add a product to the cart
     * View cart and select Secure Checkout
     * Fill in shipping details and payment details (powered by stripe)
     * Submit order and receive a confirmation email
+![User Testing](media/vchoco-testing-4.png)
 
 * I want to register for an account
     * Head to the home page
@@ -403,6 +421,7 @@ The website has been tested on Google Chrome, and Safari for mobile and web.
     * Fill in the form correctly and press the sign up button
     * Get redirected to a page saying a confirmation email has been sent
     * Check email and click on the confirmation link in the email
+![User Testing](media/vchoco-testing-5.png)
 
 * I want to log in and log out
     * Head to the home page
@@ -413,6 +432,9 @@ The website has been tested on Google Chrome, and Safari for mobile and web.
     * To sign out, select the same user icon as before
     * Select the Sign Out option
     * Get redirected to a confirmation page and select Sign Out again
+![User Testing](media/vchoco-testing-11.png)
+![User Testing](media/vchoco-testing-12.png)
+
 
 * I want to reset my password if I lost it
     * Head to the home page
@@ -422,6 +444,7 @@ The website has been tested on Google Chrome, and Safari for mobile and web.
     * Fill in email address
     * Select Reset My Password
     * Follow the instructions in the email
+![User Testing](media/vchoco-testing-10.png)
 
 * I want to receive email confirmations
     * When an order has been confirmed or a new account has been created the user will receive email confirmations
@@ -432,24 +455,28 @@ The website has been tested on Google Chrome, and Safari for mobile and web.
     * If signed in, select the user icon
     * Select Account Details
     * Order history will appear on the right on larger screens
+![User Testing](media/vchoco-testing-9.png)
+
 
 * I want to post reviews on products that I have purchased
     * Head to the product details page of the product
     * Scroll to the reviews section
     * If not already signed in, press the option to sign in first
     * If signed in, fill out the review form and select Add Review 
+![User Testing](media/vchoco-testing-8.png)
 
 * I want to sort products by categories
     * Head the products page
     * Underneath the title All Products, there are two buttons - one for each category
     * Press either button and get redirected to a page with all the products in that category
+![User Testing](media/vchoco-testing-5.png)
 
 * I want to subscribe to a newsletter to hear about the latest deals:
     * Head to the homepage of the website
     * Scroll to the very bottom
     * In the newsletter signup form, enter an email and select the subscribe button
     * Page refreshes with a success message saying the user has been registered
-
+![User Testing](media/vchoco-testing-6.png)
 
 **Site Admin**
 
@@ -543,6 +570,14 @@ The website has been tested on Google Chrome, and Safari for mobile and web.
 ✔️ Try subscribing to the newsletter on the homepage with a new email: Get a success message that the user has been subscribed.
 
 ✔️ Try subscribing to the newsletter on the homepage with a email that has already been subscribed in the past: Get an error message letting the user know that they are already subscribed.
+
+### Bugs Found
+
+* When deploying to Heroku the website wouldn't load and kept showing an error message saying SuspiciousOperation. It loaded properly after moving the images out of the static folder and into the media folder, changing the `src` attribute to each image to `src="{{ MEDIA_URL }}filename.png` and adding `'django.template.context_processors.media'` to settings.py the page loaded successfully.
+
+* Stripe webhooks weren't functioning completely in that the payment_intent.succeeded kept failing. Had to change line 66 in webhook_handler.py from `user_username=username` to `user__username=username` for it work.
+
+* The reviews carousel looked strange on screen sizes smaller than 350px in that the product image would overlap with the text. To fix this the image was set to `d-none` on smaller screen sizes.
 
 [Back to Top](#table-of-contents)
 
